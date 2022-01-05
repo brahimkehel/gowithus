@@ -1,0 +1,10 @@
+.example-spacer {
+    flex: 1 1 auto;
+  }
+.example-icon{
+      border: none;
+      background-color: transparent;
+  }
+.main-color{
+    color: #6998AB;
+}

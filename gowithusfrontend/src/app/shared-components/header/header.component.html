@@ -1,0 +1,19 @@
+<p class="m-0">
+    <mat-toolbar style="border-bottom: 1px solid lightgrey;">
+      <span class="main-color">GoWithUs</span>
+      <span class="example-spacer"></span>
+      <button mat-icon-button [matMenuTriggerFor]="menu" class="example-icon main-color " aria-label="menu">
+        <mat-icon>share</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item>
+          <mat-icon>login</mat-icon>
+          <span>Login</span>
+        </button>
+        <button mat-menu-item disabled>
+          <mat-icon>voicemail</mat-icon>
+          <span>Check voice mail</span>
+        </button>
+      </mat-menu>
+    </mat-toolbar>
+  </p>
