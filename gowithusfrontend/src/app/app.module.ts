@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
+
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { MatSelectModule} from '@angular/material/select';
@@ -14,10 +15,12 @@ import {MatInputModule} from '@angular/material/input';
 import { SharedComponentsModule } from './shared-components/shared-components.module';
 import { LayoutsModule } from './layouts/layouts.module';
 import { AcceuilComponent } from './acceuil/acceuil.component';
+import { LoginComponent } from './login/login.component';
 @NgModule({
   declarations: [
     AppComponent,
-    AcceuilComponent
+    AcceuilComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -31,7 +34,7 @@ import { AcceuilComponent } from './acceuil/acceuil.component';
     ReactiveFormsModule,
     MatNativeDateModule,
     MatDatepickerModule,
-    MatInputModule
+    MatInputModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
