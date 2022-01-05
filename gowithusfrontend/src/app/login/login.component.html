@@ -1,0 +1,38 @@
+<div class="row justify-content-center g-0">
+    <div class="d-flex justify-content-center m-5" id="login">
+        <div class="col-6 d-none d-sm-block">
+            <img src="../../assets/Sans titre (4).png" class="img-fluid" id="img-login" alt=""
+                style="width: 100%; height: 100%;">
+        </div>
+        <div class="col-lg-6 col-md-6 col-xs-12 align-self-center" id="form">
+            <h1>{{!isRegister?"Se Connecter":"S'inscrire"}}</h1>
+            <form style="text-align: center;">
+                <div class="form-group">
+                    <label for="email">Email address</label>
+                    <input type="email" class="form-control" id="email" placeholder="Enter email">
+                </div>
+                <div class="form-group" [hidden]="!isRegister">
+                    <label for="name">Full Name</label>
+                    <input type="text" class="form-control" id="name" placeholder="Enter name">
+                </div>
+                <div class="form-group" [hidden]="!isRegister">
+                    <label for="birthday">Birth Day</label>
+                    <input type="date" class="form-control" id="birthday" placeholder="Enter birthday">
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control" id="password" placeholder="Password">
+                </div>
+                <div class="form-group" [hidden]="!isRegister">
+                    <label for="confpassword">Confirm Password</label>
+                    <input type="password" class="form-control" id="confpassword" placeholder="Password">
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary w-100">Submit</button>
+                    <br/>
+                    <small>{{ !isRegister?"Si vous n'avez pas un compte, ":"Vous avez déja un compte, "}}<a href="" (click)="onRegisterHandler($event)"> {{!isRegister?"INSCRIVEZ-VOUS":"CONNECTEZ-VOUS"}} </a></small>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
