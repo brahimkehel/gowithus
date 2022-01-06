@@ -3,9 +3,9 @@
         <h1>
             GoWithUs.
         </h1>
-        <div class="glassy-div p-3 rounded w-80 h-auto">
+        <div class="glassy-div p-3 rounded w-80 h-auto" @fade>
             <div class="row justify-content-center m-0">
-                <div class="col-lg-3 mb-2 text-center">
+                <div class="col-lg-3 p-0 mb-2 text-center">
                     <span class="material-icons">
                         location_on
                     </span>
@@ -17,7 +17,7 @@
                         </mat-option>
                     </mat-autocomplete>
                 </div>
-                <div class="col-lg-3 mb-2 text-center">
+                <div class="col-lg-3 p-0 mb-2 text-center">
                     <span class="material-icons">
                         where_to_vote
                     </span> <input type="text" class="search-autocomplete" placeholder="Arrive"
@@ -28,14 +28,15 @@
                         </mat-option>
                     </mat-autocomplete>
                 </div>
-                <div class="col-lg-3 mb-2 text-center">
+                <div class="col-lg-3 p-0 mb-2 text-center">
                     <span class="material-icons">
                         date_range
                     </span>
                     <input type="Date" class="search-autocomplete" placeholder="Date">
                 </div>
                 <div class="col-md-3 mb-2 text-center">
-                    <input type="button" class="btn btn-primary" value="Rechercher" style="border: none;border-radius: 4px;font-size: large;padding: 8px;height: 100%;">
+                    <input type="button" class="btn" value="Rechercher"
+                        style="border: none;border-radius: 4px;font-size: large;padding: 8px;height: 100%;background-color: #023144;color: white;">
                 </div>
             </div>
         </div>
@@ -74,3 +75,28 @@
         </div>
     </div>
 </div>
+<br>
+<br>
+<!--<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow">
+                <div class="card-header">
+                    Filter par:
+                </div>
+                <div class="card-body">
+                    <mat-button-toggle-group name="filters" aria-label="Filters" multiple>
+                        <mat-button-toggle value="date"><span class="material-icons">
+                                today
+                            </span> Par Date</mat-button-toggle>
+                        <mat-button-toggle value="prix"><span class="material-icons">
+                                price_change
+                            </span>Par Prix</mat-button-toggle>
+                    </mat-button-toggle-group>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>-->
+<br>
+<br>
