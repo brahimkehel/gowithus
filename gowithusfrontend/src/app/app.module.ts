@@ -16,11 +16,15 @@ import { SharedComponentsModule } from './shared-components/shared-components.mo
 import { LayoutsModule } from './layouts/layouts.module';
 import { AcceuilComponent } from './acceuil/acceuil.component';
 import { LoginComponent } from './login/login.component';
+import { TrajetsComponent } from './trajets/trajets.component';
+import { TrajetComponent } from './trajets/trajet/trajet.component';
 @NgModule({
   declarations: [
     AppComponent,
     AcceuilComponent,
     LoginComponent,
+    TrajetsComponent,
+    TrajetComponent,
   ],
   imports: [
     BrowserModule,
