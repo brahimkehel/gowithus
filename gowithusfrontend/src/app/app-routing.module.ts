@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { DefaultComponent } from './layouts/default/default.component';
 import { AcceuilComponent } from './acceuil/acceuil.component';
-import { LoginComponent } from './login/login.component';
+import { LoginComponent } from './Authentification/login.component';
 
 const routes: Routes = [
   {path:'',redirectTo:'acceuil',pathMatch:'full'},

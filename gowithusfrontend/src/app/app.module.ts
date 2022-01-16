@@ -16,7 +16,7 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import { SharedComponentsModule } from './shared-components/shared-components.module';
 import { LayoutsModule } from './layouts/layouts.module';
 import { AcceuilComponent } from './acceuil/acceuil.component';
-import { LoginComponent } from './login/login.component';
+import { LoginComponent } from './Authentification/login.component';
 @NgModule({
   declarations: [
     AppComponent,
