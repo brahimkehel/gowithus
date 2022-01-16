@@ -11,6 +11,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatNativeDateModule } from '@angular/material/core';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatInputModule} from '@angular/material/input';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
 
 import { SharedComponentsModule } from './shared-components/shared-components.module';
 import { LayoutsModule } from './layouts/layouts.module';
@@ -39,6 +40,7 @@ import { TrajetComponent } from './trajets/trajet/trajet.component';
     MatNativeDateModule,
     MatDatepickerModule,
     MatInputModule,
+    MatButtonToggleModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
