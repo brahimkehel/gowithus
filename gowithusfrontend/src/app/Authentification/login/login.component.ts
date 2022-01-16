@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {ConducteurService} from "../../services/conducteur.service";
 
 @Component({
   selector: 'app-login',
@@ -6,14 +7,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  isRegister:boolean=false;
-  constructor() { }
+  constructor(private conducteurService:ConducteurService) { }
 
   ngOnInit(): void {
   }
-  onRegisterHandler(event:Event){
-    event.preventDefault();
-    if(this.isRegister)this.isRegister=false;
-    else this.isRegister=true;
+  login(username:string,password:string){
+    this.conducteurService.login(username,password).subscribe(
+      (res)=>{
+        console.log(res);
+      },
+      (err)=>{
+        console.log(err);
+      },
+      ()=>{
+        console.log("completed");
+      },
+    )
   }
 }
