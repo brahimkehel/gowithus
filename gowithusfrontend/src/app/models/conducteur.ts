@@ -50,23 +50,23 @@ export class Conducteur {
   }
 
   get cin(): string {
-    return this._cin?"";
+    return this._cin??"";
   }
 
   get nom(): string {
-    return this._nom?"";
+    return this._nom??"";
   }
 
   get prenom(): string {
-    return this._prenom?"";
+    return this._prenom??"";
   }
 
   get username(): string {
-    return this._username?"";
+    return this._username??"";
   }
 
   get email(): string {
-    return this._email?"";
+    return this._email??"";
   }
 
   get tel(): number {
