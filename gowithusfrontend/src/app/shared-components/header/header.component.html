@@ -1,20 +1,24 @@
 <p class="m-0">
-    <mat-toolbar style="border-bottom: 1px solid lightgrey;">
-      <span class="main-color">GoWithUs</span>
-      <span class="example-spacer"></span>
-      <button mat-icon-button [matMenuTriggerFor]="menu" class="example-icon main-color " aria-label="menu">
-        <mat-icon>share</mat-icon>
-      </button>
-      <mat-menu #menu="matMenu">
-        <a routerLink='auth/'>
+  <mat-toolbar style="border-bottom: 1px solid lightgrey;">
+    <span class="main-color">GoWithUs</span>
+    <span class="example-spacer"></span>
+    <img src="https://th.bing.com/th/id/OIP.99sf3ST_DZH6gfZyUDNpaAHaHZ?pid=ImgDet&w=681&h=680&rs=1" width="40"
+         height="40" class="rounded-circle">
+    <span class="h6" style="vertical-align: middle">{{ username }}</span>
+    <button mat-icon-button [matMenuTriggerFor]="menu" class="example-icon main-color " aria-label="menu">
+      <mat-icon style="vertical-align: middle">more_horiz</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <a  (click)="onAuth()">
         <button mat-menu-item>
-          <mat-icon>login</mat-icon>
-          <span>Login</span>
-        </button></a>
-        <button mat-menu-item disabled>
-          <mat-icon>voicemail</mat-icon>
-          <span>Check voice mail</span>
+          <mat-icon>{{ username!=="Connectez-vous" ? "logout" : "login"}}</mat-icon>
+          <span>{{ username!=="Connectez-vous" ? "Logout" : "Login"}}</span>
         </button>
-      </mat-menu>
-    </mat-toolbar>
-  </p>
+      </a>
+      <a mat-menu-item routerLink="/trajets">
+        <mat-icon>voicemail</mat-icon>
+        <span>Check voice mail</span>
+      </a>
+    </mat-menu>
+  </mat-toolbar>
+</p>

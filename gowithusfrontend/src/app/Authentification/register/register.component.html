@@ -1,28 +1,49 @@
-    <h1>{{"S'inscrire"}}</h1>
-    <form style="text-align: center;">
-        <div class="form-group">
-            <label for="email">Email address</label>
-            <input type="email" class="form-control" id="email" placeholder="Enter email">
-        </div>
-        <div class="form-group">
-            <label for="name">Full Name</label>
-            <input type="text" class="form-control" id="name" placeholder="Enter name">
-        </div>
-        <div class="form-group">
-            <label for="birthday">Birth Day</label>
-            <input type="date" class="form-control" id="birthday" placeholder="Enter birthday">
-        </div>
-        <div class="form-group">
-            <label for="password">Password</label>
-            <input type="password" class="form-control" id="password" placeholder="Password">
-        </div>
-        <div class="form-group">
-            <label for="confpassword">Confirm Password</label>
-            <input type="password" class="form-control" id="confpassword" placeholder="Password">
-        </div>
-        <div class="form-group">
-            <button type="submit" class="btn btn-primary w-100">Submit</button>
-            <br/>
-            <small>{{"Vous avez déja un compte, "}}<a href="" routerLink="/auth"> {{"CONNECTEZ-VOUS"}} </a></small>
-        </div>
-    </form>
+<h1>{{"S'inscrire"}}</h1>
+<form style="text-align: center;">
+  <span class="m-1">
+    <input type="radio" class="mr-1" id="Passager" name="type">
+    <label for="Passager">Passager</label></span>
+  <span class="m-1">
+    <input type="radio" class="mr-1" id="conducteur" name="type">
+    <label for="conducteur">Conducteur</label>
+  </span>
+  <div class="form-group">
+    <label for="email">Email </label>
+    <input type="email" class="form-control" id="email" placeholder="Entrez votre email">
+  </div>
+  <div class=" row form-row">
+    <div class="form-group col-sm-6">
+      <label for="Nom">Nom</label>
+      <input type="text" class="form-control" id="Nom" placeholder="Entrez votre nom">
+    </div>
+    <div class="form-group col-sm-6">
+      <label for="Prenom">Prenom</label>
+      <input type="text" class="form-control" id="Prenom" placeholder="Entrez votre prenom">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="nb">Nombre de places</label>
+    <input type="number" class="form-control" id="nb" placeholder="Entrez le nombre de place de votre véhicule">
+  </div>
+  <div class="form-group">
+    <label for="marque">Marque</label>
+    <input type="text" class="form-control" id="marque" placeholder="Entrez la marque de votre véhicule ">
+  </div>
+  <div class="form-group">
+    <label for="tel">Numero de telephone</label>
+    <input type="text" class="form-control" id="tel" placeholder="Entrez votre numero de télephone">
+  </div>
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input type="password" class="form-control" id="password" placeholder="Entrez votre mot de passe">
+  </div>
+  <div class="form-group">
+    <label for="confpassword">Confirm Password</label>
+    <input type="password" class="form-control" id="confpassword" placeholder="Confirmez votre mot de passe">
+  </div>
+  <div class="form-group">
+    <button type="submit" class="btn btn-primary w-100">Inscrivez-vous</button>
+    <br/>
+    <small>{{"Vous avez déja un compte, "}}<a href="" routerLink="/auth"> {{"CONNECTEZ-VOUS"}} </a></small>
+  </div>
+</form>

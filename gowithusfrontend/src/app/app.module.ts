@@ -12,6 +12,7 @@ import {MatNativeDateModule} from '@angular/material/core';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatInputModule} from '@angular/material/input';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 import {SharedComponentsModule} from './shared-components/shared-components.module';
 import {LayoutsModule} from './layouts/layouts.module';
@@ -22,6 +23,9 @@ import {AuthenticationComponent} from "./Authentification/authentication.compone
 import {TrajetComponent} from "./trajets/trajet/trajet.component";
 import {TrajetsComponent} from "./trajets/trajets.component";
 import {ConducteurService} from "./services/conducteur.service";
+import {HttpClientModule, HTTP_INTERCEPTORS} from "@angular/common/http";
+import {CommonModule} from "@angular/common";
+import {TokenInterceptor} from "./services/token.interceptor";
 
 
 @NgModule({
@@ -45,11 +49,20 @@ import {ConducteurService} from "./services/conducteur.service";
     FormsModule,
     ReactiveFormsModule,
     MatNativeDateModule,
+    MatSnackBarModule,
     MatDatepickerModule,
     MatInputModule,
     MatButtonToggleModule,
+    HttpClientModule,
+    CommonModule
   ],
-  providers: [ConducteurService],
+  providers: [ConducteurService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

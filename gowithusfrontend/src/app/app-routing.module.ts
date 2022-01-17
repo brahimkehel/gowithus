@@ -8,6 +8,8 @@ import {TrajetsComponent} from './trajets/trajets.component';
 import {AuthenticationComponent} from "./Authentification/authentication.component";
 import {LoginComponent} from "./Authentification/login/login.component";
 import {RegisterComponent} from "./Authentification/register/register.component";
+import {AuthGuard} from "./services/auth.guard";
+import {IsLoggedGuard} from "./services/is-logged.guard";
 
 const routes: Routes = [
   {path: '', redirectTo: 'acceuil', pathMatch: 'full'},
@@ -18,9 +20,9 @@ const routes: Routes = [
         path: 'acceuil',
         component: AcceuilComponent
       },
-      {path: 'trajets', component: TrajetsComponent},
+      {path: 'trajets', component: TrajetsComponent , canActivate:[AuthGuard]},
       {
-        path: 'auth', component: AuthenticationComponent, children: [
+        path: 'auth', component: AuthenticationComponent,canActivate:[IsLoggedGuard] , children: [
           {path: '', component: LoginComponent},
           {path: 'register', component: RegisterComponent}
         ]

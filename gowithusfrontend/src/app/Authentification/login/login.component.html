@@ -9,7 +9,7 @@
     <input type="password" class="form-control" #password id="password" placeholder="Password">
   </div>
   <div class="form-group">
-    <button type="submit" class="btn btn-primary w-100" (click)="login(username.value,password.value)" >Submit</button>
+    <button type="submit" class="btn btn-primary w-100" (click)="onLogin(username.value,password.value)" >Submit</button>
     <br/>
     <small>{{ "Si vous n'avez pas un compte, "}}<a href="" routerLink="/auth/register"> {{"INSCRIVEZ-VOUS"}} </a></small>
   </div>

@@ -1,19 +1,25 @@
-import { Injectable } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
+import {EventEmitter, Injectable, Output } from '@angular/core';
+import {HttpClient, HttpHeaders, HttpParams} from "@angular/common/http";
 import {Annonce} from "../models/annonce";
+import {Observable, Subject,of, BehaviorSubject} from "rxjs";
 
-@Injectable({
-  providedIn: 'root'
-})
+
+@Injectable()
 export class ConducteurService {
   readonly url:string="http://localhost:8080/";
+  username: BehaviorSubject<string> = new BehaviorSubject<string>("Connectez-vous");
 
-  constructor(private http:HttpClient) { }
+
+  constructor(private http:HttpClient) {}
 
   login(username:string,password:string){
-    return this.http.post(this.url+"login",{
-      username,
-      password
-    });
+    const body = new HttpParams()
+      .set('username', username)
+      .set('password', password);
+    return this.http.post(this.url+"login",body.toString(),{
+        headers: new HttpHeaders()
+          .set('Content-Type', 'application/x-www-form-urlencoded')
+      }
+    );
   }
 }
