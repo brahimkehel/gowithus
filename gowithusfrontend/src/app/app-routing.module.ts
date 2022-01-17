@@ -5,6 +5,7 @@ import { DefaultComponent } from './layouts/default/default.component';
 import { AcceuilComponent } from './acceuil/acceuil.component';
 //import { LoginComponent } from './login/login.component';
 import { TrajetsComponent } from './trajets/trajets.component';
+import {ConducteurViewComponent} from "./conducteur-view/conducteur-view.component";
 const routes: Routes = [
   { path: '', redirectTo: 'acceuil', pathMatch: 'full' },
   {
@@ -14,7 +15,8 @@ const routes: Routes = [
         path: 'acceuil',
         component: AcceuilComponent
       },
-      { path: 'trajets', component: TrajetsComponent }
+      { path: 'trajets', component: TrajetsComponent },
+      { path: 'conducteurview', component: ConducteurViewComponent }
     ]
   },
   { path: '**', redirectTo: 'acceuil' }

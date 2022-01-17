@@ -1,57 +1,51 @@
-<!-- <div>
-    <div class="row m-0" style="border-radius: 30px;">
-        <div class="col-3"
-            style="background-color: aqua; width: 30%; height: 200px; border-radius: 30px; border-right: 3px black dashed;">
-            <div class="text-center"
-                style="width: 80px; height: 80px; background-color: black; border-radius: 50%; display: table;">
-                <span class="material-icons" style="display: table-cell; vertical-align: middle;">
-                    account_circle
-                </span>
-            </div>
-            
-        </div>
-        <div class="col-9"
-            style="background-color: orange;  width: 55%; height: 200px; border-radius: 30px;border-left: 3px black dashed;">
-            <div class="row p-2">
-                <div class="col-12" >
-                    <div class="education_time">
-                        <span class="education_rounder"></span>
-                        <span class="education_line"></span>
-                        <span class="education_rounder"></span>
-                    </div>
-                    <div>
-
-                    </div>
-                </div>
-                <div class="col-12" style="background-color: pink;">
-
-                </div>
-            </div>
-        </div>
+<div class="card shadow mt-5">
+  <div class="row m-0">
+    <div class="col-4 section1-col-4">
+      <div class="div-cont">
+        <p>
+          <mat-icon>face</mat-icon>
+        </p>
+      </div>
     </div>
-</div> -->
-<div class="card fl-left mt-5">
-    <section class="date">
-        <time datetime="23th feb">
-            <span>23</span><span>feb</span>
-        </time>
-    </section>
-    <section class="card-cont">
-        <small>dj khaled</small>
-        <h3>live in sydney</h3>
-        <div class="even-date">
-            <i class="fa fa-calendar"></i>
-            <time>
-                <span>wednesday 28 december 2014</span>
-                <span>08:55pm to 12:00 am</span>
-            </time>
-        </div>
-        <div class="even-info">
-            <i class="fa fa-map-marker"></i>
-            <p>
-                nexen square for people australia, sydney
-            </p>
-        </div>
-        <a href="#">tickets</a>
-    </section>
+    <div class="col-8 section1-col-8">
+      <h2 class="m-0">
+        {{this.annonce.conducteur.nom}} {{this.annonce.conducteur.prenom}}
+      </h2>
+      <span><mat-icon>star</mat-icon> (4)</span>
+    </div>
+  </div>
+  <hr>
+  <div class="row m-0">
+    <div class="col-6 section2-col-4">
+      <div class="div-cont">
+        <small>from</small>
+        <p><mat-icon>place</mat-icon>{{this.annonce.depart}}</p>
+      </div>
+    </div>
+    <div class="col-6 section2-col-4">
+      <div class="div-cont">
+        <small>to</small>
+        <p><mat-icon>pin_drop</mat-icon>{{this.annonce.arrive}}</p>
+      </div>
+    </div>
+  </div>
+  <div class="row m-0">
+    <div class="col-6 section2-col-4">
+      <div class="div-cont">
+        <small>Places</small>
+        <p><mat-icon>groups</mat-icon>{{this.annonce.conducteur.nb_places}}</p>
+      </div>
+    </div>
+    <div class="col-6 section2-col-4">
+      <div class="div-cont">
+        <small>Marque</small>
+        <p><mat-icon>directions_car</mat-icon>{{this.annonce.conducteur.marque}}</p>
+      </div>
+    </div>
+  </div>
+  <button>
+    <mat-icon>confirmation_number</mat-icon>
+    ({{this.annonce.prix}}DH) Reserver
+  </button>
+  <small class="mb-2 text-center">5 people have sent a request</small>
 </div>

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {Annonce} from "../../models/annonce";
 
 @Component({
   selector: 'app-trajet',
@@ -6,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./trajet.component.css']
 })
 export class TrajetComponent implements OnInit {
+  @Input() annonce :Annonce=new Annonce();
 
   constructor() { }
 

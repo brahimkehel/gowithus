@@ -1,79 +1,79 @@
 <div class="jumbotron">
-    <div class="container">
-        <h1>
-            GoWithUs.
-        </h1>
-        <div class="glassy-div p-3 rounded w-80 h-auto" @fade>
-            <div class="row justify-content-center m-0">
-                <div class="col-lg-3 p-0 mb-2 text-center">
+  <div class="container">
+    <h1>
+      GoWithUs.
+    </h1>
+    <div class="glassy-div p-3 rounded w-80 h-auto" @fade>
+        <form class="row justify-content-center m-0" #searchForm="ngForm" (ngSubmit)="searchByArgs(searchForm)">
+          <div class="col-lg-3 p-0 mb-2 text-center">
                     <span class="material-icons">
                         location_on
                     </span>
-                    <input type="text" class="search-autocomplete" placeholder="Depart" [formControl]="depart_control"
-                        [matAutocomplete]="auto_depart">
-                    <mat-autocomplete #auto_depart="matAutocomplete">
-                        <mat-option *ngFor="let v of filteredDeparts | async" [value]="v">
-                            {{v}}
-                        </mat-option>
-                    </mat-autocomplete>
-                </div>
-                <div class="col-lg-3 p-0 mb-2 text-center">
+            <input type="text" class="search-autocomplete" placeholder="Depart" name="depart" required [formControl]="depart_control"
+                   [matAutocomplete]="auto_depart">
+            <mat-autocomplete #auto_depart="matAutocomplete">
+              <mat-option *ngFor="let v of filteredDeparts | async" [value]="v">
+                {{v}}
+              </mat-option>
+            </mat-autocomplete>
+          </div>
+          <div class="col-lg-3 p-0 mb-2 text-center">
                     <span class="material-icons">
                         where_to_vote
-                    </span> <input type="text" class="search-autocomplete" placeholder="Arrive"
-                        [formControl]="arrive_control" [matAutocomplete]="auto_arrive">
-                    <mat-autocomplete #auto_arrive="matAutocomplete">
-                        <mat-option *ngFor="let v of filteredArrives | async" [value]="v">
-                            {{v}}
-                        </mat-option>
-                    </mat-autocomplete>
-                </div>
-                <div class="col-lg-3 p-0 mb-2 text-center">
+                    </span> <input type="text" class="search-autocomplete" placeholder="Arrive" name="arrive" required
+                                   [formControl]="arrive_control" [matAutocomplete]="auto_arrive">
+            <mat-autocomplete #auto_arrive="matAutocomplete">
+              <mat-option *ngFor="let v of filteredArrives | async" [value]="v">
+                {{v}}
+              </mat-option>
+            </mat-autocomplete>
+          </div>
+          <div class="col-lg-3 p-0 mb-2 text-center">
                     <span class="material-icons">
                         date_range
                     </span>
-                    <input type="Date" class="search-autocomplete" placeholder="Date">
-                </div>
-                <div class="col-md-3 mb-2 text-center">
-                    <input type="button" class="btn" value="Rechercher"
-                        style="border: none;border-radius: 4px;font-size: large;padding: 8px;height: 100%;background-color: #023144;color: white;">
-                </div>
-            </div>
-        </div>
+            <input type="Date" class="search-autocomplete" placeholder="Date" name="date" ngModel required>
+          </div>
+          <div class="col-md-3 mb-2 text-center">
+            <input type="submit" [disabled]="!searchForm.valid" class="btn" value="Rechercher"
+                   style="border: none;border-radius: 4px;font-size: large;padding: 8px;height: 100%;background-color: #023144;color: white;">
+          </div>
+        </form>
     </div>
+  </div>
 </div>
 <br>
 <br>
 <div class="container">
-    <div class="row m-0 justify-content-center">
-        <div class="col-md-4">
-            <h1><span class="material-icons">
+  <div class="row m-0 justify-content-center">
+    <div class="col-md-4">
+      <h1><span class="material-icons">
                     alt_route
                 </span></h1>
-            <p class="text-justify">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo ad id asperiores
-                facere minus reprehenderit
-                laboriosam necessitatibus earum nisi fuga quisquam et inventore eveniet, quam, aliquam, non quas ipsa
-                magnam.</p>
-        </div>
-        <div class="col-md-4">
-            <h1><span class="material-icons">
-                    alt_route
-                </span></h1>
-            <p class="text-justify">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo ad id asperiores
-                facere minus reprehenderit
-                laboriosam necessitatibus earum nisi fuga quisquam et inventore eveniet, quam, aliquam, non quas ipsa
-                magnam.</p>
-        </div>
-        <div class="col-md-4">
-            <h1><span class="material-icons">
-                    alt_route
-                </span></h1>
-            <p class="text-justify">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo ad id asperiores
-                facere minus reprehenderit
-                laboriosam necessitatibus earum nisi fuga quisquam et inventore eveniet, quam, aliquam, non quas ipsa
-                magnam.</p>
-        </div>
+      <p class="text-justify">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo ad id asperiores
+        facere minus reprehenderit
+        laboriosam necessitatibus earum nisi fuga quisquam et inventore eveniet, quam, aliquam, non quas ipsa
+        magnam.</p>
     </div>
+    <div class="col-md-4">
+      <h1><span class="material-icons">
+                    alt_route
+                </span></h1>
+      <p class="text-justify">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo ad id asperiores
+        facere minus reprehenderit
+        laboriosam necessitatibus earum nisi fuga quisquam et inventore eveniet, quam, aliquam, non quas ipsa
+        magnam.</p>
+    </div>
+    <div class="col-md-4">
+      <h1><span class="material-icons">
+                    alt_route
+                </span></h1>
+      <p class="text-justify">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo ad id asperiores
+        facere minus reprehenderit
+        laboriosam necessitatibus earum nisi fuga quisquam et inventore eveniet, quam, aliquam, non quas ipsa
+        magnam.</p>
+    </div>
+  </div>
 </div>
 <br>
 <br>

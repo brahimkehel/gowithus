@@ -1,0 +1,50 @@
+<div class="card shadow mt-5 p-5 text-center">
+  <form #annonceForm=ngForm (ngSubmit)="addConducteur(annonceForm)">
+    <h1 class="text-start">Nouvelle Annonce
+      <mat-icon>emoji_emotions</mat-icon>
+    </h1>
+    <p>
+      <mat-form-field class="w-100" appearance="outline">
+        <mat-label>Depart</mat-label>
+        <input matInput required ngModel name="depart"  #depart="ngModel" placeholder="depart">
+        <mat-icon matSuffix>place</mat-icon>
+      </mat-form-field>
+      <mat-error *ngIf="depart.touched && !depart.valid">Depart is required</mat-error>
+    </p>
+    <p>
+      <mat-form-field class="w-100" appearance="outline">
+        <mat-label>Arrive</mat-label>
+        <input matInput required ngModel name="arrive" #arrive="ngModel" placeholder="arrive">
+        <mat-icon matSuffix>pin_drop</mat-icon>
+      </mat-form-field>
+      <mat-error *ngIf="arrive.touched && !arrive.valid">Arrive is required</mat-error>
+    </p>
+    <p>
+      <mat-form-field class="w-100" appearance="outline">
+        <mat-label>Prix</mat-label>
+        <input type="number" matInput required ngModel name="prix" #prix="ngModel" placeholder="prix">
+        <mat-icon matSuffix>payment</mat-icon>
+      </mat-form-field>
+      <mat-error *ngIf="prix.touched && !prix.valid">prix is required</mat-error>
+    </p>
+    <p>
+      <mat-form-field class="w-100" appearance="outline">
+        <mat-label>Choose a date</mat-label>
+        <input matInput readonly required ngModel name="date" #date="ngModel" [matDatepicker]="picker">
+        <mat-datepicker-toggle matSuffix [for]="picker">
+          <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+        </mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+        <mat-error *ngIf="date.touched && !date.valid">date is required</mat-error>
+      </mat-form-field>
+
+    </p>
+    <p>
+      <mat-form-field class="w-100" appearance="outline">
+        <input matInput required ngModel name="heureDepart" #heureDepart="ngModel" type="time">
+        <mat-error *ngIf="heureDepart.touched && !heureDepart.valid">heurede depart is required</mat-error>
+      </mat-form-field>
+    </p>
+    <button class="btn btn-outline-dark mr-5 ml-5 w-75" type="submit" [disabled]="!annonceForm.valid">Ajouter</button>
+  </form>
+</div>
