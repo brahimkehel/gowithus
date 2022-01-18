@@ -1,30 +1,59 @@
-<div class="col-lg-6 col-md-6 col-xs-12 align-self-center" id="form">
-    <h1>{{"S'inscrire"}}</h1>
-    <form style="text-align: center;">
-        <div class="form-group">
-            <label for="email">Email address</label>
-            <input type="email" class="form-control" id="email" placeholder="Enter email">
-        </div>
-        <div class="form-group">
-            <label for="name">Full Name</label>
-            <input type="text" class="form-control" id="name" placeholder="Enter name">
-        </div>
-        <div class="form-group">
-            <label for="birthday">Birth Day</label>
-            <input type="date" class="form-control" id="birthday" placeholder="Enter birthday">
-        </div>
-        <div class="form-group">
-            <label for="password">Password</label>
-            <input type="password" class="form-control" id="password" placeholder="Password">
-        </div>
-        <div class="form-group">
-            <label for="confpassword">Confirm Password</label>
-            <input type="password" class="form-control" id="confpassword" placeholder="Password">
-        </div>
-        <div class="form-group">
-            <button type="submit" class="btn btn-primary w-100">Submit</button>
-            <br/>
-            <small>{{"Vous avez déja un compte, "}}<a href=""> {{"CONNECTEZ-VOUS"}} </a></small>
-        </div>
-    </form>
-</div>
+<span class="h1">S'inscrire</span>
+<form style="text-align: center;" #register="ngForm"  (ngSubmit)="onRegisterHandler(register)">
+  <span class="m-1">
+    <input type="radio" [(ngModel)]="selectedRadio" value="passager"  class="mr-1" id="Passager" name="type">
+    <label for="Passager">Passager</label></span>
+  <span class="m-1">
+    <input type="radio" [(ngModel)]="selectedRadio" value="conducteur" class="mr-1" id="conducteur" name="type">
+    <label for="conducteur">Conducteur</label>
+  </span>
+  <div class="form-group">
+    <label for="email">Email </label>
+    <input type="email" #email="ngModel" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" class="form-control" id="email" ngModel name="email" placeholder="Entrez votre email">
+    <small class="alert-danger" *ngIf="email.touched && email.invalid && email.hasError('pattern')">Adresse mail invalid</small>
+  </div>
+  <div class=" row form-row">
+    <div class="form-group col-sm-6">
+      <label for="Nom">Nom</label>
+      <input type="text" class="form-control" #nom="ngModel" required minlength="3" id="Nom" ngModel name="nom"  placeholder="Entrez votre nom">
+      <small class="alert-danger" *ngIf="nom.touched && nom.invalid && nom.hasError('minlength')">le nom est obligatoire</small>
+    </div>
+    <div class="form-group col-sm-6">
+      <label for="Prenom">Prenom</label>
+      <input type="text" class="form-control" #prenom="ngModel" required minlength="2" id="Prenom" ngModel name="prenom" placeholder="Entrez votre prenom">
+      <small class="alert-danger" *ngIf="prenom.touched && prenom.invalid && prenom.hasError('minlength')">le prenom est obligatoire</small>
+    </div>
+  </div>
+  <div class="form-group" *ngIf="selectedRadio==='conducteur'">
+    <label for="nb">Nombre de places</label>
+    <input type="number" #nb="ngModel" class="form-control" id="nb" required ngModel name="nb" placeholder="Entrez le nombre de place de votre véhicule">
+    <small class="alert-danger" *ngIf="nb.touched && nb.invalid">le nombre de place est obligatoire</small>
+  </div>
+  <div class="form-group" *ngIf="selectedRadio==='conducteur'">
+    <label for="marque">Marque</label>
+    <input type="text" class="form-control" #marque="ngModel" id="marque" required ngModel name="marque" placeholder="Entrez la marque de votre véhicule ">
+    <small class="alert-danger" *ngIf="marque.touched && marque.invalid">la marque est obligatoire</small>
+  </div>
+  <div class="form-group">
+    <label for="tel">Numero de telephone</label>
+    <input type="tel" class="form-control" #tel="ngModel" id="tel" required ngModel name="tel" placeholder="Entrez votre numero de télephone">
+    <small class="alert-danger" *ngIf="tel.touched && tel.invalid">la telephone est obligatoire</small>
+  </div>
+  <div class=" row form-row">
+    <div class="form-group col-sm-6">
+      <label for="password">Mot de passe</label>
+      <input type="password" class="form-control"  #mdp="ngModel"  required minlength="5" id="password"ngModel name="password" placeholder="Entrez votre mot de passe">
+      <small class="alert-danger" *ngIf="mdp.touched && mdp.invalid && mdp.hasError('minlength')">le mot de passe doit contenir au moins 5 caractères</small>
+    </div>
+    <div class="form-group col-sm-6">
+      <label for="confirmpass">Confirmez votre mot de passe</label>
+      <input type="password" class="form-control" ngValidateEqual="password" #confirmPass="ngModel" required minlength="5" value="" id="confirmpass" ngModel name="confirmpass" placeholder="Confirmez votre mot de passe">
+      <small class="alert-danger" *ngIf="confirmPass.touched && confirmPass.invalid && confirmPass.hasError('notEqual')&&  mdp.valid">le mot de passe doit être identique</small>
+    </div>
+  </div>
+  <div class="form-group mt-2" *ngIf="register.form.status!=='INVALID'">
+    <button type="submit" class="btn btn-primary w-100">Inscrivez-vous</button>
+    <br/>
+  </div>
+  <small>Vous avez déja un compte, <a href="" routerLink="/auth">CONNECTEZ-VOUS</a></small>
+</form>

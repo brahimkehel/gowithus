@@ -1,19 +1,49 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {UtilisateurService} from "../../services/utilisateur.service";
+import {Router} from "@angular/router";
+import {JwtHelperService} from "@auth0/angular-jwt";
+import {MatSnackBar} from "@angular/material/snack-bar";
+
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {
-  isRegister:boolean=false;
-  constructor() { }
+  constructor(private conducteurService: UtilisateurService, private router: Router, private _snackBar: MatSnackBar) {
+
+  }
 
   ngOnInit(): void {
   }
-  onRegisterHandler(event:Event){
-    event.preventDefault();
-    if(this.isRegister)this.isRegister=false;
-    else this.isRegister=true;
+
+  helper = new JwtHelperService();
+
+  onLogin(loginForm: any) {
+    this.conducteurService.login(
+      loginForm.form.controls.email.value,
+      loginForm.form.controls.password.value
+    ).subscribe({
+        next: (res: any) => {
+          //console.log(this.helper.decodeToken(res["access_token"]));
+          let decodedToken = this.helper.decodeToken(res["access_token"]);
+          sessionStorage.setItem("token", res["access_token"]);
+          sessionStorage.setItem("refresh-token", res["refresh_token"]);
+          sessionStorage.setItem("user", decodedToken.sub)
+          this.conducteurService.username.next(decodedToken.sub);
+          this.router.navigateByUrl("/");
+        },
+        error: (err) => {
+          console.log(err)
+          this._snackBar.open("login ou password incorrect", "Retry");
+        },
+        complete: () => {
+          console.log("completed")
+        }
+      }
+    )
   }
+
+
 }

@@ -9,7 +9,7 @@
     </div>
     <div class="col-8 section1-col-8">
       <h2 class="m-0">
-        {{this.annonce.conducteur.nom}} {{this.annonce.conducteur.prenom}}
+        {{this.annonce.conducteur._nom}} {{this.annonce.conducteur._prenom}}
       </h2>
       <span><mat-icon>star</mat-icon> (4)</span>
     </div>
@@ -33,13 +33,13 @@
     <div class="col-6 section2-col-4">
       <div class="div-cont">
         <small>Places</small>
-        <p><mat-icon>groups</mat-icon>{{this.annonce.conducteur.nb_places}}</p>
+        <p><mat-icon>groups</mat-icon>{{this.annonce.conducteur._nb_places}}</p>
       </div>
     </div>
     <div class="col-6 section2-col-4">
       <div class="div-cont">
         <small>Marque</small>
-        <p><mat-icon>directions_car</mat-icon>{{this.annonce.conducteur.marque}}</p>
+        <p><mat-icon>directions_car</mat-icon>{{this.annonce.conducteur._marque}}</p>
       </div>
     </div>
     <div class="col-12 text-center">
