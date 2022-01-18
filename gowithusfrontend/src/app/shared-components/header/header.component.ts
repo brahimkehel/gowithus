@@ -1,6 +1,6 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
-import {ConducteurService} from "../../services/conducteur.service";
+import {UtilisateurService} from "../../services/utilisateur.service";
 
 @Component({
   selector: 'app-header',
@@ -10,7 +10,7 @@ import {ConducteurService} from "../../services/conducteur.service";
 export class HeaderComponent implements OnInit{
 
 
-  constructor(private router: Router, private conducteurService: ConducteurService) {
+  constructor(private router: Router, private conducteurService: UtilisateurService) {
     this.conducteurService.username.subscribe(newVal => {
       this.username = newVal
     })

@@ -2,10 +2,12 @@ import {EventEmitter, Injectable, Output } from '@angular/core';
 import {HttpClient, HttpHeaders, HttpParams} from "@angular/common/http";
 import {Annonce} from "../models/annonce";
 import {Observable, Subject,of, BehaviorSubject} from "rxjs";
+import {Conducteur} from "../models/conducteur";
+import {Passager} from "../models/passager";
 
 
 @Injectable()
-export class ConducteurService {
+export class UtilisateurService {
   readonly url:string="http://localhost:8080/";
   username: BehaviorSubject<string> = new BehaviorSubject<string>("Connectez-vous");
 
@@ -21,5 +23,11 @@ export class ConducteurService {
           .set('Content-Type', 'application/x-www-form-urlencoded')
       }
     );
+  }
+  registerConducteur(conducteur:Conducteur){
+    return this.http.post(this.url+"Utilisateurs/saveConducteur",conducteur);
+  }
+  registerPassager(passager:Passager){
+    return this.http.post(this.url+"Utilisateurs/savePassager",passager);
   }
 }

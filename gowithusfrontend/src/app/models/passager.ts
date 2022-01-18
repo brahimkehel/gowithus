@@ -1,14 +1,12 @@
-export class Conducteur {
+export class Passager {
   private id?: number;
-  private cin?:string;
-  private nom?:string;
-  private prenom?:string;
-  private username?:string;
-  private email?:string;
-  private tel?:number;
-  private marque?:string;
-  private nb_places?:number;
-  private password!:string;
+  private cin?: string;
+  private nom?: string;
+  private prenom?: string;
+  private username?: string;
+  private email?: string;
+  private tel?: number;
+  private password!: string;
 
   set _id(value: number) {
     this.id = value;
@@ -38,49 +36,34 @@ export class Conducteur {
     this.tel = value;
   }
 
-  set _marque(value: string) {
-    this.marque = value;
-  }
-
-  set _nb_places(value: number) {
-    this.nb_places = value;
-  }
-
   get _id(): number {
-    return this.id??0;
+    return this.id ?? 0;
   }
 
   get _cin(): string {
-    return this.cin??"";
+    return this.cin ?? "";
   }
 
   get _nom(): string {
-    return this.nom??"";
+    return this.nom ?? "";
   }
 
   get _prenom(): string {
-    return this.prenom??"";
+    return this.prenom ?? "";
   }
 
   get _username(): string {
-    return this.username??"";
+    return this.username ?? "";
   }
 
   get _email(): string {
-    return this.email??"";
+    return this.email ?? "";
   }
 
   get _tel(): number {
-    return this.tel??0;
+    return this.tel ?? 0;
   }
 
-  get _marque(): string {
-    return this.marque??"";
-  }
-
-  get _nb_places(): number {
-    return this.nb_places??0;
-  }
   get _password(): string {
     return this.password;
   }

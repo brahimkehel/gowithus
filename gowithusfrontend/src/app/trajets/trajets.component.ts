@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {ConducteurService} from "../services/conducteur.service";
+import {UtilisateurService} from "../services/utilisateur.service";
 
 @Component({
   selector: 'app-trajets',

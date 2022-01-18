@@ -1,17 +1,19 @@
-<h1>{{"Se Connecter"}}</h1>
-<form style="text-align: center;">
+<span class="h1">Se Connecter</span>
+<form style="text-align: center;" #login="ngForm" (ngSubmit)="onLogin(login)">
   <div class="form-group">
     <label for="email">Email address</label>
-    <input type="text" class="form-control" #username id="email" placeholder="Enter email">
+    <input type="text" class="form-control" required #username="ngModel" ngModel name="email" id="email" placeholder="Enter email">
+    <small class="alert-danger" *ngIf="username.touched && username.invalid">Email est obligatoire</small>
   </div>
   <div class="form-group">
     <label for="password">Password</label>
-    <input type="password" class="form-control" #password id="password" placeholder="Password">
+    <input type="password" class="form-control" required #password="ngModel" ngModel name="password" id="password" placeholder="Password">
+    <small class="alert-danger" *ngIf="password.touched && password.invalid">Mot de passe est obligatoire</small>
   </div>
-  <div class="form-group">
-    <button type="submit" class="btn btn-primary w-100" (click)="onLogin(username.value,password.value)" >Submit</button>
+  <div class="form-group mt-3" >
+    <button type="submit" class="btn btn-primary w-100" *ngIf="login.form.status!=='INVALID'">Se connecter</button>
     <br/>
-    <small>{{ "Si vous n'avez pas un compte, "}}<a href="" routerLink="/auth/register"> {{"INSCRIVEZ-VOUS"}} </a></small>
+    <small>Si vous n'avez pas un compte, <a href="" routerLink="/auth/register">INSCRIVEZ-VOUS</a></small>
   </div>
 </form>
 

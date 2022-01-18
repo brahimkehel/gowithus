@@ -5,19 +5,29 @@ import {
   HttpEvent,
   HttpInterceptor
 } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import {finalize, Observable} from 'rxjs';
+import {LoaderService} from "./loader.service";
 
 @Injectable()
 export class TokenInterceptor implements HttpInterceptor {
 
-  constructor() {}
+  constructor(private loaderService:LoaderService) {}
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
-    let tokenizeRequest=request.clone({
-      setHeaders:{
-        Authorization:'Bearer '+sessionStorage.getItem("token")
+    this.loaderService.isLoading.next(true);
+    let header:any="";
+    if(sessionStorage.getItem("token")){
+      header={
+        setHeaders:{
+          Authorization:'Bearer '+sessionStorage.getItem("token")
+        }
       }
-    })
-    return next.handle(tokenizeRequest);
+    }
+    let tokenizeRequest=request.clone(header);
+    return next.handle(tokenizeRequest).pipe(
+      finalize(()=>{
+        this.loaderService.isLoading.next(false);
+      })
+    );
   }
 }

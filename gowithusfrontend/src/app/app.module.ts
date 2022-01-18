@@ -13,6 +13,8 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatInputModule} from '@angular/material/input';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+
 
 import {SharedComponentsModule} from './shared-components/shared-components.module';
 import {LayoutsModule} from './layouts/layouts.module';
@@ -22,10 +24,12 @@ import {AcceuilComponent} from './acceuil/acceuil.component';
 import {AuthenticationComponent} from "./Authentification/authentication.component";
 import {TrajetComponent} from "./trajets/trajet/trajet.component";
 import {TrajetsComponent} from "./trajets/trajets.component";
-import {ConducteurService} from "./services/conducteur.service";
+import {UtilisateurService} from "./services/utilisateur.service";
 import {HttpClientModule, HTTP_INTERCEPTORS} from "@angular/common/http";
 import {CommonModule} from "@angular/common";
 import {TokenInterceptor} from "./services/token.interceptor";
+import {ValidateEqualModule} from "ng-validate-equal";
+import {MatProgressBarModule} from "@angular/material/progress-bar";
 
 
 @NgModule({
@@ -54,9 +58,10 @@ import {TokenInterceptor} from "./services/token.interceptor";
     MatInputModule,
     MatButtonToggleModule,
     HttpClientModule,
-    CommonModule
+    CommonModule,
+    ValidateEqualModule,
   ],
-  providers: [ConducteurService,
+  providers: [UtilisateurService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptor,
