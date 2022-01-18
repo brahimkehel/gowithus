@@ -1,5 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Annonce} from "../../models/annonce";
+import {MatDialog} from "@angular/material/dialog";
+import {ReservationDialogComponent} from "../reservation-dialog/reservation-dialog.component";
 
 @Component({
   selector: 'app-trajet',
@@ -7,11 +9,22 @@ import {Annonce} from "../../models/annonce";
   styleUrls: ['./trajet.component.css']
 })
 export class TrajetComponent implements OnInit {
-  @Input() annonce :Annonce=new Annonce();
+  @Input() annonce: Annonce = new Annonce();
 
-  constructor() { }
+  constructor(public dialog: MatDialog) {
+  }
 
   ngOnInit(): void {
   }
 
+  openDialog(a:Annonce): void {
+    const dialogRef = this.dialog.open(ReservationDialogComponent, {
+      width: '300px',
+      data: a,
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
+  }
 }

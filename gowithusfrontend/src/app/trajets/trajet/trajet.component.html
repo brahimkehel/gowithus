@@ -42,8 +42,11 @@
         <p><mat-icon>directions_car</mat-icon>{{this.annonce.conducteur.marque}}</p>
       </div>
     </div>
+    <div class="col-12 text-center">
+      <h3><mat-icon>schedule</mat-icon>{{this.annonce.heureDepart}}</h3>
+    </div>
   </div>
-  <button>
+  <button (click)="openDialog(this.annonce)">
     <mat-icon>confirmation_number</mat-icon>
     ({{this.annonce.prix}}DH) Reserver
   </button>

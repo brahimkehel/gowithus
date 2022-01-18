@@ -14,6 +14,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import {MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatDialogModule} from '@angular/material/dialog';
 
 import { SharedComponentsModule } from './shared-components/shared-components.module';
 import { LayoutsModule } from './layouts/layouts.module';
@@ -27,6 +28,8 @@ import {MatIconModule} from "@angular/material/icon";
 import { ConducteurViewComponent } from './conducteur-view/conducteur-view.component';
 import { ConducteurFormComponent } from './conducteur-view/conducteur-form/conducteur-form.component';
 import { ConducteurAnnonesComponent } from './conducteur-view/conducteur-annones/conducteur-annones.component';
+import { ReservationDialogComponent } from './trajets/reservation-dialog/reservation-dialog.component';
+import {MatButtonModule} from "@angular/material/button";
 
 @NgModule({
   declarations: [
@@ -38,7 +41,8 @@ import { ConducteurAnnonesComponent } from './conducteur-view/conducteur-annones
     TrajetsComponent,
     ConducteurViewComponent,
     ConducteurFormComponent,
-    ConducteurAnnonesComponent
+    ConducteurAnnonesComponent,
+    ReservationDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -57,7 +61,9 @@ import { ConducteurAnnonesComponent } from './conducteur-view/conducteur-annones
     HttpClientModule,
     MatIconModule,
     MatTableModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatDialogModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
