@@ -9,6 +9,7 @@ import {UtilisateurService} from "../../services/utilisateur.service";
 })
 export class HeaderComponent implements OnInit {
   role: any = ""
+  username: string = "";
 
   constructor(private router: Router, private conducteurService: UtilisateurService) {
     this.conducteurService.username.subscribe(newVal => {
@@ -17,7 +18,7 @@ export class HeaderComponent implements OnInit {
     this.conducteurService.role.subscribe(value=>this.role=value);
   }
 
-  username: string = "";
+
 
   ngOnInit(): void {
     if (sessionStorage.getItem("user")) {
