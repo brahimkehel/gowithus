@@ -19,6 +19,10 @@
         <mat-icon>card_travel</mat-icon>
         <span>Mes trajets</span>
       </a>
+      <a mat-menu-item routerLink="/conducteurview" *ngIf="username && role=='ROLE_Conducteur'">
+        <mat-icon>post_add</mat-icon>
+        <span>Gestion annonces</span>
+      </a>
     </mat-menu>
   </mat-toolbar>
 </p>

@@ -6,7 +6,9 @@
     <p>
       <mat-form-field class="w-100" appearance="outline">
         <mat-label>Depart</mat-label>
-        <input matInput required ngModel name="depart"  #depart="ngModel" placeholder="depart">
+        <mat-select required ngModel name="depart"  #depart="ngModel">
+          <mat-option *ngFor="let v of villes" [value]="v">{{v}}</mat-option>
+        </mat-select>
         <mat-icon matSuffix>place</mat-icon>
       </mat-form-field>
       <mat-error *ngIf="depart.touched && !depart.valid">Depart is required</mat-error>
@@ -14,7 +16,9 @@
     <p>
       <mat-form-field class="w-100" appearance="outline">
         <mat-label>Arrive</mat-label>
-        <input matInput required ngModel name="arrive" #arrive="ngModel" placeholder="arrive">
+        <mat-select required ngModel name="arrive" #arrive="ngModel">
+          <mat-option *ngFor="let v of villes" [value]="v">{{v}}</mat-option>
+        </mat-select>
         <mat-icon matSuffix>pin_drop</mat-icon>
       </mat-form-field>
       <mat-error *ngIf="arrive.touched && !arrive.valid">Arrive is required</mat-error>

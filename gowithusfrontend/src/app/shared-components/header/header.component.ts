@@ -7,8 +7,8 @@ import {UtilisateurService} from "../../services/utilisateur.service";
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-export class HeaderComponent implements OnInit{
-
+export class HeaderComponent implements OnInit {
+  role: any = ""
 
   constructor(private router: Router, private conducteurService: UtilisateurService) {
     this.conducteurService.username.subscribe(newVal => {
@@ -19,8 +19,9 @@ export class HeaderComponent implements OnInit{
   username: string = "";
 
   ngOnInit(): void {
-    if(sessionStorage.getItem("user")){
+    if (sessionStorage.getItem("user")) {
       this.conducteurService.username.next(sessionStorage.getItem("user")!)
+      this.role = sessionStorage.getItem("role");
     }
 
   }
