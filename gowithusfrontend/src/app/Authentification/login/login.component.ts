@@ -31,8 +31,10 @@ export class LoginComponent implements OnInit {
           sessionStorage.setItem("token", res["access_token"]);
           sessionStorage.setItem("refresh-token", res["refresh_token"]);
           sessionStorage.setItem("user", decodedToken.sub)
+          sessionStorage.setItem("exp",decodedToken.exp)
           this.conducteurService.username.next(decodedToken.sub);
           sessionStorage.setItem("role", decodedToken.roles[0])
+          this.conducteurService.role.next(decodedToken.roles[0]);
           this.router.navigateByUrl("/");
         },
         error: (err) => {

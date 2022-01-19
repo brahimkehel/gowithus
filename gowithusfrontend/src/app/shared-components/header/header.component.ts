@@ -14,6 +14,7 @@ export class HeaderComponent implements OnInit {
     this.conducteurService.username.subscribe(newVal => {
       this.username = newVal
     })
+    this.conducteurService.role.subscribe(value=>this.role=value);
   }
 
   username: string = "";

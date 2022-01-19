@@ -1,6 +1,6 @@
 <p class="m-0">
   <mat-toolbar style="border-bottom: 1px solid lightgrey;">
-    <span class="main-color">GoWithUs</span>
+    <span class="main-color" routerLink="/" style="cursor:pointer;">GoWithUs</span>
     <span class="example-spacer"></span>
     <img src="https://th.bing.com/th/id/OIP.99sf3ST_DZH6gfZyUDNpaAHaHZ?pid=ImgDet&w=681&h=680&rs=1" width="40"
          height="40" class="rounded-circle">
@@ -15,11 +15,11 @@
           <span>{{ username!=="Connectez-vous" ? "Logout" : "Login"}}</span>
         </button>
       </a>
-      <a mat-menu-item routerLink="/trajets">
+      <!--<a mat-menu-item routerLink="/trajets">
         <mat-icon>card_travel</mat-icon>
         <span>Mes trajets</span>
-      </a>
-      <a mat-menu-item routerLink="/conducteurview" *ngIf="username && role=='ROLE_Conducteur'">
+      </a>-->
+      <a mat-menu-item routerLink="/conducteurview" *ngIf="username!='Connectez-vous' && role=='ROLE_Conducteur' ">
         <mat-icon>post_add</mat-icon>
         <span>Gestion annonces</span>
       </a>

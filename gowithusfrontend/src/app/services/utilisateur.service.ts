@@ -10,6 +10,7 @@ import {Passager} from "../models/passager";
 export class UtilisateurService {
   readonly url:string="http://localhost:8080/";
   username: BehaviorSubject<string> = new BehaviorSubject<string>("Connectez-vous");
+  role: BehaviorSubject<string> = new BehaviorSubject<string>("");
 
 
   constructor(private http:HttpClient) {}

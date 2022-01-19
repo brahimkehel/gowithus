@@ -5,10 +5,12 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import {MatMenuModule} from '@angular/material/menu';
 import { RouterModule } from '@angular/router';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
     HeaderComponent,
+    FooterComponent,
   ],
   imports: [
     CommonModule,
@@ -18,6 +20,6 @@ import { RouterModule } from '@angular/router';
     RouterModule,
 
   ],
-    exports: [HeaderComponent]
+    exports: [HeaderComponent, FooterComponent]
 })
 export class SharedComponentsModule { }

@@ -9,7 +9,7 @@
   </span>
   <div class="form-group">
     <label for="email">Email </label>
-    <input type="email" #email="ngModel" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" class="form-control" id="email" ngModel name="email" placeholder="Entrez votre email">
+    <input type="email" #email="ngModel" required pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$" class="form-control" id="email" ngModel name="email" placeholder="Entrez votre email">
     <small class="alert-danger" *ngIf="email.touched && email.invalid && email.hasError('pattern')">Adresse mail invalid</small>
   </div>
   <div class=" row form-row">
