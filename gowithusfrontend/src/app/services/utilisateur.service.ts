@@ -26,7 +26,18 @@ export class UtilisateurService {
     );
   }
   registerConducteur(conducteur:Conducteur){
-    return this.http.post(this.url+"Utilisateurs/saveConducteur",conducteur);
+    return this.http.post(this.url+"Utilisateurs/saveConducteur",{
+      id:conducteur.id,
+      nom:conducteur.nom,
+      prenom:conducteur.prenom,
+      nb_places:conducteur.nb_places,
+      cin:conducteur.cin,
+      username:conducteur.username,
+      email:conducteur.email,
+      tel:conducteur.tel,
+      marque:conducteur.marque,
+      password:conducteur.password
+    });
   }
   registerPassager(passager:Passager){
     return this.http.post(this.url+"Utilisateurs/savePassager",passager);

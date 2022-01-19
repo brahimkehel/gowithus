@@ -28,6 +28,7 @@ export class ReservationDialogComponent implements OnInit {
     req$.subscribe({
       next: () => {
         console.log("added");
+        this.dialogRef.close();
       },
       error:(err)=>{
         console.log(err);

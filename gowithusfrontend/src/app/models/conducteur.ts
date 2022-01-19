@@ -1,92 +1,93 @@
 export class Conducteur {
-  private id?: number;
-  private cin?:string;
-  private nom?:string;
-  private prenom?:string;
-  private username?:string;
-  private email?:string;
-  private tel?:number;
-  private marque?:string;
-  private nb_places?:number;
-  private password!:string;
+  private _id?: number;
+  private _cin?:string;
+  private _nom?:string;
+  private _prenom?:string;
+  private _username?:string;
+  private _email?:string;
+  private _tel?:number;
+  private _marque?:string;
+  private _nb_places?:number;
+  private _password!:string;
 
-  set _id(value: number) {
-    this.id = value;
+
+  get id(): number {
+    return this._id??0;
   }
 
-  set _cin(value: string) {
-    this.cin = value;
+  set id(value: number) {
+    this._id = value;
   }
 
-  set _nom(value: string) {
-    this.nom = value;
+  get cin(): string {
+    return this._cin??"";
   }
 
-  set _prenom(value: string) {
-    this.prenom = value;
+  set cin(value: string) {
+    this._cin = value;
   }
 
-  set _username(value: string) {
-    this.username = value;
+  get nom(): string {
+    return this._nom??"";
   }
 
-  set _email(value: string) {
-    this.email = value;
+  set nom(value: string) {
+    this._nom = value;
   }
 
-  set _tel(value: number) {
-    this.tel = value;
+  get prenom(): string {
+    return this._prenom??"";
   }
 
-  set _marque(value: string) {
-    this.marque = value;
+  set prenom(value: string) {
+    this._prenom = value;
   }
 
-  set _nb_places(value: number) {
-    this.nb_places = value;
+  get username(): string {
+    return this._username??"";
   }
 
-  get _id(): number {
-    return this.id??0;
+  set username(value: string) {
+    this._username = value;
   }
 
-
-  get _cin(): string {
-    return this.cin??"";
+  get email(): string {
+    return this._email??"";
   }
 
-  get _nom(): string {
-    return this.nom??"";
+  set email(value: string) {
+    this._email = value;
   }
 
-  get _prenom(): string {
-    return this.prenom??"";
+  get tel(): number {
+    return this._tel??0;
   }
 
-  get _username(): string {
-    return this.username??"";
+  set tel(value: number) {
+    this._tel = value;
   }
 
-  get _email(): string {
-    return this.email??"";
+  get marque(): string {
+    return this._marque??"";
   }
 
-  get _tel(): number {
-    return this.tel??0;
+  set marque(value: string) {
+    this._marque = value;
   }
 
-  get _marque(): string {
-    return this.marque??"";
+  get nb_places(): number {
+    return this._nb_places??0;
   }
 
-  get _nb_places(): number {
-    return this.nb_places??0;
-  }
-  get _password(): string {
-    return this.password;
+  set nb_places(value: number) {
+    this._nb_places = value;
   }
 
-  set _password(value: string) {
-    this.password = value;
+  get password(): string {
+    return this._password;
+  }
+
+  set password(value: string) {
+    this._password = value;
   }
 }

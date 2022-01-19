@@ -44,16 +44,16 @@ export class RegisterComponent implements OnInit {
       });
     } else {
       let conducteur: Conducteur = new Conducteur();
-      conducteur._id = 0;
-      conducteur._username = formregister.form.controls.email.value;
-      conducteur._email = formregister.form.controls.email.value;
-      conducteur._nom = formregister.form.controls.nom.value;
-      conducteur._prenom = formregister.form.controls.prenom.value;
-      conducteur._cin = "AD214578";
-      conducteur._marque = formregister.form.controls.marque.value;
-      conducteur._nb_places = formregister.form.controls.nb.value;
-      conducteur._tel = formregister.form.controls.tel.value;
-      conducteur._password = formregister.form.controls.password.value;
+      conducteur.id = 0;
+      conducteur.username = formregister.form.controls.email.value;
+      conducteur.email = formregister.form.controls.email.value;
+      conducteur.nom = formregister.form.controls.nom.value;
+      conducteur.prenom = formregister.form.controls.prenom.value;
+      conducteur.cin = "AD214578";
+      conducteur.marque = formregister.form.controls.marque.value;
+      conducteur.nb_places = formregister.form.controls.nb.value;
+      conducteur.tel = formregister.form.controls.tel.value;
+      conducteur.password = formregister.form.controls.password.value;
       this.conducteurService.registerConducteur(conducteur).subscribe({
         next: (res) => {
           this.router.navigateByUrl('/auth');

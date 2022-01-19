@@ -15,6 +15,7 @@ export class TrajetComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    console.log(this.annonce)
   }
 
   openDialog(a:Annonce): void {
