@@ -9,23 +9,23 @@
     </div>
     <div class="col-8 section1-col-8">
       <h2 class="m-0">
-        {{this.annonce.conducteur._nom}} {{this.annonce.conducteur._prenom}}
+        {{this.annonce._conducteur._nom}} {{this.annonce._conducteur._prenom}}
       </h2>
       <span><mat-icon>star</mat-icon> (4)</span>
-    </div>
+    </div>_
   </div>
   <hr>
   <div class="row m-0">
     <div class="col-6 section2-col-4">
       <div class="div-cont">
         <small>from</small>
-        <p><mat-icon>place</mat-icon>{{this.annonce.depart}}</p>
+        <p><mat-icon>place</mat-icon>{{this.annonce._depart}}</p>
       </div>
     </div>
     <div class="col-6 section2-col-4">
       <div class="div-cont">
         <small>to</small>
-        <p><mat-icon>pin_drop</mat-icon>{{this.annonce.arrive}}</p>
+        <p><mat-icon>pin_drop</mat-icon>{{this.annonce._arrive}}</p>
       </div>
     </div>
   </div>
@@ -33,22 +33,22 @@
     <div class="col-6 section2-col-4">
       <div class="div-cont">
         <small>Places</small>
-        <p><mat-icon>groups</mat-icon>{{this.annonce.conducteur._nb_places}}</p>
+        <p><mat-icon>groups</mat-icon>{{this.annonce._conducteur._nb_places}}</p>
       </div>
     </div>
     <div class="col-6 section2-col-4">
       <div class="div-cont">
         <small>Marque</small>
-        <p><mat-icon>directions_car</mat-icon>{{this.annonce.conducteur._marque}}</p>
+        <p><mat-icon>directions_car</mat-icon>{{this.annonce._conducteur._marque}}</p>
       </div>
     </div>
     <div class="col-12 text-center">
-      <h3><mat-icon>schedule</mat-icon>{{this.annonce.heureDepart}}</h3>
+      <h3><mat-icon>schedule</mat-icon>{{this.annonce._heureDepart}}</h3>
     </div>
   </div>
   <button (click)="openDialog(this.annonce)">
     <mat-icon>confirmation_number</mat-icon>
-    ({{this.annonce.prix}}DH) Reserver
+    ({{this.annonce._prix}}DH) Reserver
   </button>
   <small class="mb-2 text-center">5 people have sent a request</small>
 </div>
