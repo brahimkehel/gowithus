@@ -4,7 +4,7 @@
 <hr>
 <br>
 <!--if authenticated-->
-<ng-template [ngIf]="true">
+<ng-template [ngIf]="this.username.trim()!='Connectez-vous'">
   <div mat-dialog-content>
     <p>Annonce par:<mat-icon>face</mat-icon> <span class="data-span">{{data.conducteur._nom}}</span></p>
     <p>Prix:<mat-icon>payment</mat-icon> <span class="data-span">{{data.prix}}DH</span></p>
@@ -20,12 +20,12 @@
   </div>
 </ng-template>
 <!--if not authenticated-->
-<ng-template [ngIf]="false">
+<ng-template [ngIf]="this.username.trim()=='Connectez-vous'">
   <div mat-dialog-content>
     <p class="data-span"><mat-icon>login</mat-icon>Connectez vous!</p>
   </div>
   <div mat-dialog-actions>
     <button mat-button [mat-dialog-close] cdkFocusInitial  class="text-danger">Cancel</button>
-   <button mat-button routerLink="#">Se Connecter</button>
+   <button mat-button (click)="AuthRedirect()">Se Connecte</button>
   </div>
 </ng-template>
