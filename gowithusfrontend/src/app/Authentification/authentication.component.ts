@@ -7,7 +7,11 @@ import {LoaderService} from "../services/loader.service";
   styleUrls: ['./authentication.component.css']
 })
 export class AuthenticationComponent implements OnInit {
+  constructor(private loaderService: LoaderService) {
+    this.loaderService.isLoading.subscribe(value => this.isLoading = value);
+  }
 
+  isLoading = false;
   ngOnInit(): void {
   }
 }

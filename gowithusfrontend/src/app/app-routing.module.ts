@@ -22,7 +22,7 @@ const routes: Routes = [
         component: AcceuilComponent
       },
       { path: 'conducteurview', component: ConducteurViewComponent },
-      {path: 'trajets', component: TrajetsComponent , canActivate:[AuthGuard]},
+      {path: 'trajets', component: TrajetsComponent /*, canActivate:[AuthGuard]*/},
       {
         path: 'auth', component: AuthenticationComponent,canActivate:[IsLoggedGuard] , children: [
           {path: '', component: LoginComponent},

@@ -40,6 +40,7 @@ import {HttpClientModule, HTTP_INTERCEPTORS} from "@angular/common/http";
 import {CommonModule} from "@angular/common";
 import {TokenInterceptor} from "./services/token.interceptor";
 import {ValidateEqualModule} from "ng-validate-equal";
+import {MatProgressBarModule} from "@angular/material/progress-bar";
 
 @NgModule({
   declarations: [
@@ -78,6 +79,7 @@ import {ValidateEqualModule} from "ng-validate-equal";
     MatButtonModule,
     CommonModule,
     ValidateEqualModule,
+    MatProgressBarModule
   ],
   providers: [UtilisateurService,
     {
