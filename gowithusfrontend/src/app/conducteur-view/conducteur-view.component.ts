@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {Annonce} from "../models/annonce";
 
 @Component({
   selector: 'app-conducteur-view',
