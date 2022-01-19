@@ -1,20 +1,32 @@
-.jumbotron{
-    padding: 4rem 2rem;
-    background-color: #B1D0E0;
-}   
+.jumbotron {
+  padding: 4rem 2rem;
+  background-color: #B1D0E0;
+  background-image: url("https://cdn.blablacar.com/kairos/assets/build/images/carpool_blablabus_large-e3d8eff32c13cdafc080a100f03628bd.svg");
+  height: 50vh;
+  background-size: cover;
+  background-position: center;
+}
 
-.glassy-div{
-    border-radius: 4px;
-    background-color: rgba(255, 255, 255, .15);  
-    backdrop-filter: blur(5px);
+.glassy-div {
+  border-radius: 4px;
+  background-color: rgba(255, 255, 255, .15);
+  backdrop-filter: blur(5px);
 }
+
 .text-justify {
-    text-align: justify;
-    padding: 8px;
+  text-align: justify;
+  padding: 8px;
 }
-.material-icons{
-    vertical-align: middle;
+
+.material-icons {
+  vertical-align: middle;
 }
-.search-autocomplete{
-    border: none;border-radius: 2px;font-size: larger;padding: 4px; height: 60px;width: 80%;
+
+.search-autocomplete {
+  border: none;
+  border-radius: 2px;
+  font-size: larger;
+  padding: 4px;
+  height: 60px;
+  width: 80%;
 }

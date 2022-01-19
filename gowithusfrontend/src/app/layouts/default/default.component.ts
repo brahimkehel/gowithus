@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {LoaderService} from "../../services/loader.service";
 
 @Component({
   selector: 'app-default',
@@ -6,9 +7,6 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./default.component.css']
 })
 export class DefaultComponent implements OnInit {
-
-  constructor() { }
-
   ngOnInit(): void {
   }
 

@@ -14,6 +14,14 @@
   line-height: 200%;
   padding: 10px;
 }
+.loader-container{
+  position: absolute;
+  width: inherit;
+  height: inherit;
+  background-color: black;
+  opacity: 0.8;
+  z-index: 99;
+}
 
 @media only screen and (max-width: 768px) {
   #form{
