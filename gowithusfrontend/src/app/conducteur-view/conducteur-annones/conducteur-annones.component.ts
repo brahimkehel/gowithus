@@ -14,21 +14,39 @@ export class ConducteurAnnonesComponent implements OnInit {
   annonces: Annonce[] = [];
   dataSource: any;
   clickedRows = new Set<Annonce>()
+  isannoceAdded: boolean = false;
   @ViewChild(MatPaginator) paginator?: MatPaginator;
 
   constructor(private annonceService: AnnonceService) {
+    this.annonceService.messageNotification.subscribe({
+      next: (res: string) => {
+        if (res == "update") {
+          this.annonces = []
+          this.getAnnoncesByConducteur();
+        }
+      }
+    })
   }
 
   ngOnInit(): void {
     this.getAnnoncesByConducteur();
+
   }
 
   getAnnoncesByConducteur() {
-    const $req = this.annonceService.getAnnonceByConducteurId(4);
+    const $req = this.annonceService.getAnnonceByConducteurId();
     $req.subscribe({
       next: (res) => {
         res.forEach(a => {
-          this.annonces.push(new Annonce(a._id, a._depart, a._arrive, a._prix, a._date, a._heureDepart, a._conducteur))
+          let annonce = new Annonce();
+          annonce.id = a.id;
+          annonce.depart = a.depart;
+          annonce.arrive = a.arrive;
+          annonce.prix = a.prix;
+          annonce.date = a.date;
+          annonce.heureDepart = a.heureDepart;
+          annonce.conducteur = a.conducteur;
+          this.annonces.push(annonce)
         })
         this.dataSource = new MatTableDataSource(this.annonces);
         this.dataSource.paginator = this.paginator;
@@ -39,5 +57,4 @@ export class ConducteurAnnonesComponent implements OnInit {
       }
     });
   }
-
 }

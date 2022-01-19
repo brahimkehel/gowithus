@@ -9,7 +9,7 @@ export class ReservationService {
 
   constructor(private http: HttpClient) { }
 
-  public addReservation(){
-    return this.http.post(this.url+"Passagers/7/6",{});
+  public addReservation(id:number){
+    return this.http.post(this.url+"Passagers/"+sessionStorage.getItem("user")+"/"+id,{});
   }
 }

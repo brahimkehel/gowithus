@@ -6,17 +6,17 @@
 <!--if authenticated-->
 <ng-template [ngIf]="true">
   <div mat-dialog-content>
-    <p>Annonce par:<mat-icon>face</mat-icon> <span class="data-span">{{data._conducteur._nom}}</span></p>
-    <p>Prix:<mat-icon>payment</mat-icon> <span class="data-span">{{data._prix}}DH</span></p>
-    <p>Marque:<mat-icon>directions_car</mat-icon> <span class="data-span">{{data._conducteur._marque}}</span></p>
+    <p>Annonce par:<mat-icon>face</mat-icon> <span class="data-span">{{data.conducteur._nom}}</span></p>
+    <p>Prix:<mat-icon>payment</mat-icon> <span class="data-span">{{data.prix}}DH</span></p>
+    <p>Marque:<mat-icon>directions_car</mat-icon> <span class="data-span">{{data.conducteur._marque}}</span></p>
     <ul class="bar">
-      <li><span class="data-span">{{data._depart}}</span></li>
-      <li><span class="data-span">{{data._arrive}}</span></li>
+      <li><span class="data-span">{{data.depart}}</span></li>
+      <li><span class="data-span">{{data.arrive}}</span></li>
     </ul>
   </div>
   <div mat-dialog-actions>
     <button mat-button [mat-dialog-close] cdkFocusInitial class="text-danger">Cancel</button>
-    <button mat-button (click)="Reserver()">Reserver</button>
+    <button mat-button (click)="Reserver(data.id)">Reserver</button>
   </div>
 </ng-template>
 <!--if not authenticated-->

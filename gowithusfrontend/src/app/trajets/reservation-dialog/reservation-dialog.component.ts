@@ -17,8 +17,8 @@ export class ReservationDialogComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  Reserver() {
-    const req$ = this.reservationService.addReservation();
+  Reserver(id:number) {
+    const req$ = this.reservationService.addReservation(id);
     req$.subscribe({
       next: () => {
         console.log("added");

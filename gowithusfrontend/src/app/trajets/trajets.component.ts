@@ -30,12 +30,22 @@ export class TrajetsComponent implements OnInit {
 
   getAnnonceByArgs() {
     //const req = this.annonceService.getAnnonceByArgs(this.argsObj["params"]["depart"], this.argsObj["params"]["arrive"]);
-    const $req = this.annonceService.getAnnonceByArgs("a", "b");
+    const $req = this.annonceService.getAnnonceByArgs(this.argsObj["params"]["depart"], this.argsObj["params"]["arrive"]);
     $req.subscribe({
       next: (res) => {
         res.forEach(a=>{
-          this.annonces.push(new Annonce(a._id,a._depart,a._arrive,a._prix,a._date,a._heureDepart,a._conducteur))
+          console.log(a)
+          let annonce=new Annonce();
+          annonce.id=a.id;
+          annonce.depart=a.depart;
+          annonce.arrive=a.arrive;
+          annonce.prix=a.prix;
+          annonce.date=a.date;
+          annonce.heureDepart=a.heureDepart;
+          annonce.conducteur=a.conducteur;
+          this.annonces.push(annonce)
         })
+        console.log(res)
         console.log(this.annonces)
       },
       error: err => {
