@@ -1,6 +1,8 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, Input, OnDestroy, OnInit, Output} from '@angular/core';
 import {Router} from '@angular/router';
 import {UtilisateurService} from "../../services/utilisateur.service";
+import {LoaderService} from "../../services/loader.service";
+import {MatSidenav} from "@angular/material/sidenav";
 
 @Component({
   selector: 'app-header',
@@ -10,8 +12,9 @@ import {UtilisateurService} from "../../services/utilisateur.service";
 export class HeaderComponent implements OnInit {
   role: any = ""
   username: string = "";
+  @Input() sidenav!:MatSidenav;
 
-  constructor(private router: Router, private conducteurService: UtilisateurService) {
+  constructor(private router: Router, private conducteurService: UtilisateurService,private isloaded:LoaderService) {
     this.conducteurService.username.subscribe(newVal => {
       this.username = newVal
     })
@@ -30,6 +33,7 @@ export class HeaderComponent implements OnInit {
 
   onAuth() {
     if (this.username === "Connectez-vous") {
+      this.isloaded.isLoading.next(false);
       this.router.navigateByUrl("/auth")
     } else {
       sessionStorage.clear()
@@ -37,5 +41,7 @@ export class HeaderComponent implements OnInit {
       this.router.navigateByUrl("/");
     }
   }
+
+
 
 }

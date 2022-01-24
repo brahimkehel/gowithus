@@ -6,9 +6,15 @@
 <!--if authenticated-->
 <ng-template [ngIf]="this.username.trim()!='Connectez-vous'">
   <div mat-dialog-content>
-    <p>Annonce par:<mat-icon>face</mat-icon> <span class="data-span">{{data.conducteur.nom}}</span></p>
-    <p>Prix:<mat-icon>payment</mat-icon> <span class="data-span">{{data.prix}}DH</span></p>
-    <p>Marque:<mat-icon>directions_car</mat-icon> <span class="data-span">{{data.conducteur.marque}}</span></p>
+    <p>Annonce par:
+      <mat-icon>face</mat-icon>
+      <span class="data-span">{{data.conducteur.nom}}</span></p>
+    <p>Prix:
+      <mat-icon>payment</mat-icon>
+      <span class="data-span">{{data.prix}}DH</span></p>
+    <p>Marque:
+      <mat-icon>directions_car</mat-icon>
+      <span class="data-span">{{data.conducteur.marque}}</span></p>
     <ul class="bar">
       <li><span class="data-span">{{data.depart}}</span></li>
       <li><span class="data-span">{{data.arrive}}</span></li>
@@ -22,10 +28,13 @@
 <!--if not authenticated-->
 <ng-template [ngIf]="this.username.trim()=='Connectez-vous'">
   <div mat-dialog-content>
-    <p class="data-span"><mat-icon>login</mat-icon>Connectez vous!</p>
+    <p class="data-span">
+      <mat-icon>login</mat-icon>
+      Connectez vous!
+    </p>
   </div>
   <div mat-dialog-actions>
-    <button mat-button [mat-dialog-close] cdkFocusInitial  class="text-danger">Cancel</button>
-   <button mat-button (click)="AuthRedirect()">Se Connecte</button>
+    <button mat-button [mat-dialog-close] cdkFocusInitial class="text-danger">Cancel</button>
+    <button mat-button (click)="AuthRedirect()">Se Connecte</button>
   </div>
 </ng-template>

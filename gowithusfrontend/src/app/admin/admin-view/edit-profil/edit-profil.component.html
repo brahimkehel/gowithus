@@ -1,0 +1,49 @@
+<div class="container p-5 text-center">
+    <span class="h1 ">Informations</span>
+    <form style="text-align: center;" #register="ngForm">
+      <div class=" row form-row">
+        <div class="form-group col-sm-6">
+          <label for="Nom">Nom</label>
+          <input type="text" class="form-control" #nom="ngModel" required minlength="3" id="Nom" ngModel name="nom"
+                 placeholder="Entrez votre nom">
+          <small class="alert-danger" *ngIf="nom.touched && nom.invalid && nom.hasError('minlength')">le nom est
+            obligatoire</small>
+        </div>
+        <div class="form-group col-sm-6">
+          <label for="Prenom">Prenom</label>
+          <input type="text" class="form-control" #prenom="ngModel" required minlength="2" id="Prenom" ngModel
+                 name="prenom" placeholder="Entrez votre prenom">
+          <small class="alert-danger" *ngIf="prenom.touched && prenom.invalid && prenom.hasError('minlength')">le prenom
+            est obligatoire</small>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="tel">Numero de telephone</label>
+        <input type="tel" class="form-control" #tel="ngModel" id="tel" required ngModel name="tel"
+               placeholder="Entrez votre numero de télephone">
+        <small class="alert-danger" *ngIf="tel.touched && tel.invalid">la telephone est obligatoire</small>
+      </div>
+      <div class=" row form-row">
+        <div class="form-group col-sm-6">
+          <label for="password">Nouveau mot de passe</label>
+          <input type="password" class="form-control" #mdp="ngModel" required minlength="5" id="password" ngModel
+                 name="password" placeholder="Entrez votre mot de passe">
+          <small class="alert-danger" *ngIf="mdp.touched && mdp.invalid && mdp.hasError('minlength')">le mot de passe
+            doit contenir au moins 5 caractères</small>
+        </div>
+        <div class="form-group col-sm-6">
+          <label for="confirmpass">Confirmez votre mot de passe</label>
+          <input type="password" class="form-control" ngValidateEqual="password" #confirmPass="ngModel" required
+                 minlength="5" value="" id="confirmpass" ngModel name="confirmpass"
+                 placeholder="Confirmez votre mot de passe">
+          <small class="alert-danger"
+                 *ngIf="confirmPass.touched && confirmPass.invalid && confirmPass.hasError('notEqual')&&  mdp.valid">le
+            mot de passe doit être identique</small>
+        </div>
+      </div>
+      <div class="form-group mt-2" *ngIf="register.form.status!=='INVALID'">
+        <button type="submit" class="btn btn-primary w-50">Modifier</button>
+        <br/>
+      </div>
+    </form>
+</div>

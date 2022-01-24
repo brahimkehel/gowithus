@@ -1,0 +1,48 @@
+<app-header [sidenav]="sidenav"></app-header>
+<mat-sidenav-container>
+  <mat-sidenav #sidenav mode="side" opened class="mat-elevation-z8">
+    <!--Content (Name & userType) -->
+    <img class="avatar mat-elevation-z8" src="https://source.unsplash.com/c_GmwfHBDzk/200x200"/>
+    <h4 class="name">John Smith</h4>
+    <p class="designation">Conducteur</p>
+    <!--end of content -->
+
+    <!--(Navigation Button) -->
+    <mat-divider></mat-divider>
+    <div class="text-start">
+      <button mat-button class="mat-button" routerLink="/">
+        <mat-icon>home</mat-icon>
+        <span>Accueil</span>
+      </button>
+      <button mat-button class="mat-button" routerLink="/admin/edit">
+        <mat-icon>person</mat-icon>
+        <span>profile</span>
+      </button>
+      <button mat-button class="mat-button">
+        <mat-icon>front_hand</mat-icon>
+        <span>Demandes</span>
+      </button>
+      <button mat-button class="mat-button" routerLink="/admin/users">
+        <mat-icon>groups</mat-icon>
+        <span>Utilisateurs</span>
+      </button>
+      <button mat-button class="mat-button">
+        <mat-icon>map</mat-icon>
+        <span>Trajets</span>
+      </button>
+      <button mat-button class="mat-button" routerLink="/admin/sendmail">
+        <mat-icon>send</mat-icon>
+        <span>Envoyer email</span>
+      </button>
+    </div>
+    <!--end of Navigation -->
+    <mat-divider></mat-divider>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <div class="content mat-elevation-z8">
+      <div class="row justify-content-center align-items-center p-2">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

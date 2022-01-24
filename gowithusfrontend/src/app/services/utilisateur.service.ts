@@ -37,10 +37,12 @@ export class UtilisateurService {
       tel:conducteur.tel,
       marque:conducteur.marque,
       password:conducteur.password
-    });
+    },{responseType:"text"});
   }
   registerPassager(passager:Passager){
     return this.http.post(this.url+"Utilisateurs/savePassager",passager);
   }
-
+  getAllApprouved(){
+    return this.http.get(this.url+"Utilisateurs/approuved");
+  }
 }
