@@ -1,0 +1,23 @@
+.demo-table {
+  width: 100%;
+  min-width: 466px;
+}
+.wrapper{
+  max-width: 100%;
+  overflow-x: auto;
+}
+.mat-row .mat-cell {
+  border-bottom: 1px solid black;
+  border-top: 1px solid black;
+  cursor: pointer;
+}
+.action{
+  width: 200px;
+}
+mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+mat-paginator{
+  min-width: 466px;
+}

@@ -19,10 +19,10 @@ import {MatDialogModule} from '@angular/material/dialog';
 
 
 import {MatIconModule} from "@angular/material/icon";
-import { ConducteurViewComponent } from './conducteur-view/conducteur-view.component';
-import { ConducteurFormComponent } from './conducteur-view/conducteur-form/conducteur-form.component';
-import { ConducteurAnnonesComponent } from './conducteur-view/conducteur-annones/conducteur-annones.component';
-import { ReservationDialogComponent } from './trajets/reservation-dialog/reservation-dialog.component';
+import {ConducteurViewComponent} from './conducteur-view/conducteur-view.component';
+import {ConducteurFormComponent} from './conducteur-view/conducteur-form/conducteur-form.component';
+import {ConducteurAnnonesComponent} from './conducteur-view/conducteur-annones/conducteur-annones.component';
+import {ReservationDialogComponent} from './trajets/reservation-dialog/reservation-dialog.component';
 import {MatButtonModule} from "@angular/material/button";
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 
@@ -41,6 +41,7 @@ import {CommonModule} from "@angular/common";
 import {TokenInterceptor} from "./services/token.interceptor";
 import {ValidateEqualModule} from "ng-validate-equal";
 import {MatProgressBarModule} from "@angular/material/progress-bar";
+import {AdminModule} from "./admin/admin.module";
 
 @NgModule({
   declarations: [
@@ -79,7 +80,8 @@ import {MatProgressBarModule} from "@angular/material/progress-bar";
     MatButtonModule,
     CommonModule,
     ValidateEqualModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    AdminModule
   ],
   providers: [UtilisateurService,
     {

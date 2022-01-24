@@ -1,5 +1,13 @@
 <p class="m-0">
   <mat-toolbar style="border-bottom: 1px solid lightgrey;">
+    <button mat-icon-button *ngIf="sidenav && sidenav.mode === 'over'" (click)="sidenav.toggle()">
+      <mat-icon *ngIf="sidenav && !sidenav.opened">
+        menu
+      </mat-icon>
+      <mat-icon *ngIf="sidenav && sidenav.opened">
+        close
+      </mat-icon>
+    </button>
     <span class="main-color" routerLink="/" style="cursor:pointer;">GoWithUs</span>
     <span class="example-spacer"></span>
     <img src="https://th.bing.com/th/id/OIP.99sf3ST_DZH6gfZyUDNpaAHaHZ?pid=ImgDet&w=681&h=680&rs=1" width="40"

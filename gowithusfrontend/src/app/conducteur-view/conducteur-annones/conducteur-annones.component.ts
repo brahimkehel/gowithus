@@ -30,7 +30,6 @@ export class ConducteurAnnonesComponent implements OnInit {
 
   ngOnInit(): void {
     this.getAnnoncesByConducteur();
-
   }
 
   getAnnoncesByConducteur() {

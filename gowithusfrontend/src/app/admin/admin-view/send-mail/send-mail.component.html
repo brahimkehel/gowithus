@@ -1,0 +1,40 @@
+<div class="container p-5 text-center">
+  <span class="h1 ">Envoyer un mail</span>
+  <form #emailForm=ngForm (submit)="sendMail()">
+    <mat-form-field class="w-100" appearance="fill">
+      <mat-label>Favorite Fruits</mat-label>
+      <mat-chip-list #chipList aria-label="Fruit selection">
+        <mat-chip
+          *ngFor="let user of users"
+          (removed)="remove(user)">
+          {{user}}
+          <button matChipRemove>
+            <mat-icon>cancel</mat-icon>
+          </button>
+        </mat-chip>
+        <input
+          placeholder="Ajouter un utilisateur"
+          #userInput
+          [formControl]="userCtrl"
+          [matAutocomplete]="auto"
+          [matChipInputFor]="chipList"
+          (matChipInputTokenEnd)="add($event)">
+      </mat-chip-list>
+      <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+        <mat-option *ngFor="let user of filteredUsers | async " [value]="user.email">
+          {{user.nom + " " + user.prenom}}
+            <span *ngIf="user.roles[0].name=='ROLE_Passager'">👦</span>
+            <span *ngIf="user.roles[0].name=='ROLE_Conducteur'">🚗</span>
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+    <p>
+      <mat-form-field class="w-100 h-50" appearance="fill" color="'#275F8E'">
+        <mat-label>Contenu</mat-label>
+        <textarea required [minLength]="10" [maxLength]="800" [rows]="15" matInput
+                  placeholder="Ecrivez votre contenu ici...."></textarea>
+      </mat-form-field>
+    </p>
+    <button class="btn btn-outline-dark mr-5 ml-5 w-75" type="submit" [disabled]="!emailForm.valid">Envoyer</button>
+  </form>
+</div>

@@ -10,6 +10,10 @@ import {LoginComponent} from "./Authentification/login/login.component";
 import {RegisterComponent} from "./Authentification/register/register.component";
 import {AuthGuard} from "./services/auth.guard";
 import {IsLoggedGuard} from "./services/is-logged.guard";
+import {AdminViewComponent} from "./admin/admin-view/admin-view.component";
+import {EditProfilComponent} from "./admin/admin-view/edit-profil/edit-profil.component";
+import {SendMailComponent} from "./admin/admin-view/send-mail/send-mail.component";
+import {UsersComponent} from "./admin/admin-view/users/users.component";
 
 
 const routes: Routes = [
@@ -21,14 +25,21 @@ const routes: Routes = [
         path: 'acceuil',
         component: AcceuilComponent
       },
-      { path: 'conducteurview', component: ConducteurViewComponent },
+      {path: 'conducteurview', component: ConducteurViewComponent},
       {path: 'trajets', component: TrajetsComponent /*, canActivate:[AuthGuard]*/},
       {
-        path: 'auth', component: AuthenticationComponent,canActivate:[IsLoggedGuard] , children: [
+        path: 'auth', component: AuthenticationComponent, canActivate: [IsLoggedGuard], children: [
           {path: '', component: LoginComponent},
           {path: 'register', component: RegisterComponent}
         ]
       }
+    ]
+  },
+  {
+    path: 'admin', component: AdminViewComponent, children: [
+      {path: 'edit', component: EditProfilComponent},
+      {path: 'sendmail', component: SendMailComponent},
+      {path: 'users', component: UsersComponent}
     ]
   },
   {path: '**', redirectTo: 'acceuil'}
