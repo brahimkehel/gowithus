@@ -63,7 +63,7 @@ export class AcceuilComponent implements OnInit {
       queryParams: {
         'depart': this.depart_control.value,
         'arrive': this.arrive_control.value,
-        "date": searchForm.value["date"]
+        'date': searchForm.value["date"]
       }
     });
   }

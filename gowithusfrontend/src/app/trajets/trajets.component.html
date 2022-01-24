@@ -1,8 +1,41 @@
+<div class="row m-0 p-2 justify-content-center" *ngIf="annonces.length!=0">
+  <div class="col-lg-6 col-md-6">
+    <p class="text-center">
+      <mat-icon>search</mat-icon>
+      {{this.annonces.length}} trajets disponibles
+    </p>
+    <div class="card shadow">
+      <div class="card-header">
+        <div class="w-100 text-center">
+          <span class="text-capitalize ">{{this.argsObj["params"]["date"]}} | {{this.argsObj["params"]["depart"]}}
+            -> {{this.argsObj["params"]["arrive"]}}</span>
+          <span style="float: left">Filter par:</span>
+          <span style="float: right;cursor: pointer" class="text-danger" (click)="reset()">Reset</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <mat-button-toggle-group (click)="filter()" [formControl]="filterArgs" multiple>
+          <mat-button-toggle value="date">
+            <mat-icon>event</mat-icon>
+            Date de depart
+          </mat-button-toggle>
+          <mat-button-toggle value="prix">
+            <mat-icon>payment</mat-icon>
+            Prix
+          </mat-button-toggle>
+        </mat-button-toggle-group>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div class="container text-center" style="text-align: center" *ngIf="annonces.length==0">
   <img src="assets/no-content.svg" class="img-fluid" style="height: 80vh"/>
 </div>
-<div class="row justify-content-start m-0">
-  <div class="col-lg-4 col-md-6" *ngFor="let a of this.annonces">
+<div class="row justify-content-start m-0" *ngIf="annonces.length!=0">
+  <div class="col-lg-4 col-md-6" *ngFor="let a of this.filtredAnnonces">
     <app-trajet [annonce]="a"></app-trajet>
   </div>
 </div>
+<br>
+<br>

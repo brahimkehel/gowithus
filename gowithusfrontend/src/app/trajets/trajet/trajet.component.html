@@ -1,4 +1,7 @@
-<div class="card shadow mt-5">
+<div class="mt-5" [ngClass]="
+{'shadow-lg':checkTimeAviablility(this.annonce.heureDepart,this.annonce.date),
+'card':checkTimeAviablility(this.annonce.heureDepart,this.annonce.date),
+'div-disabled':!checkTimeAviablility(this.annonce.heureDepart,this.annonce.date)}">
   <div class="row m-0">
     <div class="col-4 section1-col-4">
       <div class="div-cont">
@@ -18,13 +21,13 @@
   <div class="row m-0">
     <div class="col-6 section2-col-4">
       <div class="div-cont">
-        <small>from</small>
+        <small>depart</small>
         <p><mat-icon>place</mat-icon>{{this.annonce.depart}}</p>
       </div>
     </div>
     <div class="col-6 section2-col-4">
       <div class="div-cont">
-        <small>to</small>
+        <small>arrive</small>
         <p><mat-icon>pin_drop</mat-icon>{{this.annonce.arrive}}</p>
       </div>
     </div>
@@ -46,9 +49,9 @@
       <h3><mat-icon>schedule</mat-icon>{{this.annonce.heureDepart}}</h3>
     </div>
   </div>
-  <button (click)="openDialog(this.annonce)">
+  <button *ngIf="checkTimeAviablility(this.annonce.heureDepart,this.annonce.date)" (click)="openDialog(this.annonce)">
     <mat-icon>confirmation_number</mat-icon>
     ({{this.annonce.prix}}DH) Reserver
   </button>
-  <small class="mb-2 text-center">5 people have sent a request</small>
+  <p class="mb-2 text-center te">5 people have sent a request</p>
 </div>

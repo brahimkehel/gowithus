@@ -18,7 +18,7 @@ export class TrajetComponent implements OnInit {
     console.log(this.annonce)
   }
 
-  openDialog(a:Annonce): void {
+  openDialog(a: Annonce): void {
     const dialogRef = this.dialog.open(ReservationDialogComponent, {
       width: '300px',
       data: a,
@@ -27,5 +27,13 @@ export class TrajetComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
     });
+  }
+
+  checkTimeAviablility(time: String, date: Date): boolean {
+    let currentDate=new Date();
+    let annonceDate=new Date(date);
+    annonceDate.setHours(parseInt(time.split(":")[0]));
+    annonceDate.setMinutes(parseInt(time.split(":")[1]));
+    return annonceDate>currentDate;
   }
 }

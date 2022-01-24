@@ -1,9 +1,11 @@
 .card{
   width: 100%;
-  background: #B1D0E0;
   color: #023144;
   border: none;
   text-transform: uppercase;
+}
+.card:hover{
+  border-left: 6px solid #023144;
 }
 mat-icon{
   vertical-align: bottom;
@@ -51,4 +53,15 @@ button:hover{
 .div-cont p{
   font-weight: bold;
   font-size: larger;
+}
+
+.div-disabled{
+  width: 100%;
+  color: #023144;
+  text-transform: uppercase;
+  border: 1px solid #999999;
+  background-color: #cccccc;
+}
+.div-disabled:hover{
+  border-left: 6px solid tomato;
 }

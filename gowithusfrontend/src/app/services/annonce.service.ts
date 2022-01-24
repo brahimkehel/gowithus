@@ -14,8 +14,8 @@ export class AnnonceService {
   constructor(private http: HttpClient) {
   }
 
-  public getAnnonceByArgs(depart: string, arrive: string): Observable<Annonce[]> {
-    return this.http.get<Annonce[]>(this.url + "Annonces?depart=" + depart + "&arrive=" + arrive);
+  public getAnnonceByArgs(depart: string, arrive: string,date:Date): Observable<Annonce[]> {
+    return this.http.get<Annonce[]>(this.url + "Annonces?depart=" + depart + "&arrive=" + arrive+ "&date=" + date);
   }
 
   public getAnnonceByConducteurId(): Observable<Annonce[]> {

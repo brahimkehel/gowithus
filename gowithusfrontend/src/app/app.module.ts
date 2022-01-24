@@ -79,7 +79,7 @@ import {MatProgressBarModule} from "@angular/material/progress-bar";
     MatButtonModule,
     CommonModule,
     ValidateEqualModule,
-    MatProgressBarModule
+    MatProgressBarModule,
   ],
   providers: [UtilisateurService,
     {
