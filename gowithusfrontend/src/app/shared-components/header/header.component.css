@@ -11,3 +11,7 @@
 a{
   text-decoration: none;
 }
+mat-icon{
+  vertical-align: middle;
+  color: #023144;
+}

@@ -43,8 +43,17 @@ export class UtilisateurService {
   registerPassager(passager:Passager){
     return this.http.post(this.url+"Utilisateurs/savePassager",passager);
   }
-  getAllApprouved(){
-    return this.http.get(this.url+"Utilisateurs/approuved");
+
+  getAllConducteursApprouved(){
+    return this.http.get<Conducteur[]>(this.url+"Conducteurs/approuved");
+  }
+
+  getAllConducteursNonApprouved(){
+    return this.http.get<Conducteur[]>(this.url+"Conducteurs/nonapprouved");
+  }
+
+  getAllPassager(){
+    return this.http.get<Passager[]>(this.url+"Passagers/");
   }
   sendMail(emails:string[],objet:string,content:string){
     console.log(emails)

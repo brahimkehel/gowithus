@@ -2,6 +2,9 @@ import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
 import {MatPaginator} from "@angular/material/paginator";
 import {UtilisateurService} from "../../../services/utilisateur.service";
 import {MatTableDataSource} from "@angular/material/table";
+import {Conducteur} from "../../../models/conducteur";
+import {MatDialog} from "@angular/material/dialog";
+import {UserDetailsDialogComponent} from "../user-details-dialog/user-details-dialog.component";
 
 @Component({
   selector: 'app-users',
@@ -9,34 +12,11 @@ import {MatTableDataSource} from "@angular/material/table";
   styleUrls: ['./users.component.css']
 })
 export class UsersComponent implements OnInit {
-  displayedColumns: string[] = ['Nom', 'Prenom', 'Username', 'Email', 'Tel','Action'];
-  dataSource:any;
-  @ViewChild(MatPaginator) paginator!: MatPaginator;
-
-  constructor(private utilisateurService: UtilisateurService) {
-  }
+  data_type_ca="ca";
+  data_type_cna="cna";
+  data_type_p="p";
 
   ngOnInit(): void {
-    this.getAllUsers();
-  }
-  applyFilter(filterValue: string) {
-    filterValue = filterValue.trim(); // Remove whitespace
-    filterValue = filterValue.toLowerCase(); // MatTableDataSource defaults to lowercase matches
-    this.dataSource.filter = filterValue;
-  }
-
-  getAllUsers() {
-    this.utilisateurService.getAllApprouved().subscribe({
-      next: (res: any) => {
-        this.dataSource = new MatTableDataSource(res);
-        this.dataSource.paginator = this.paginator;
-      },
-      error: (err) => {
-        console.log(err);
-      },
-      complete: () => {
-      }
-    })
   }
 
 }

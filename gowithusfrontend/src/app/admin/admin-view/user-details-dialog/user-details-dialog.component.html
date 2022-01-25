@@ -1,0 +1,33 @@
+<!--Conducteur details-->
+<ng-template [ngIf]="this.conducteur">
+  <h1 mat-dialog-title>Conducteur 🚗:
+    {{this.conducteur.nom}}</h1>
+  <div mat-dialog-content>
+    <p>{{this.conducteur.cin}}</p>
+    <p>{{this.conducteur.nom}}</p>
+    <p>{{this.conducteur.prenom}}</p>
+    <p>{{this.conducteur.username}}</p>
+    <p>{{this.conducteur.nb_places}}</p>
+    <p>{{this.conducteur.marque}}</p>
+  </div>
+  <div mat-dialog-actions>
+    <button mat-button (click)="onNoClick()" cdkFocusInitial>Fermer</button>
+    <button mat-button class="btn btn-success" *ngIf="this.data.user_type=='cna'">Approuver</button>
+    <button mat-button class="btn btn-danger">Supprimer</button>
+  </div>
+</ng-template>
+<!--Passager details-->
+<ng-template [ngIf]="this.passager">
+  <h1 mat-dialog-title>Passager 👦:
+    {{this.passager.nom}}</h1>
+  <div mat-dialog-content>
+    <p>{{this.passager.cin}}</p>
+    <p>{{this.passager.nom}}</p>
+    <p>{{this.passager.prenom}}</p>
+    <p>{{this.passager.username}}</p>
+  </div>
+  <div mat-dialog-actions>
+    <button mat-button (click)="onNoClick()" cdkFocusInitial>Fermer</button>
+    <button mat-button class="btn btn-danger">Supprimer</button>
+  </div>
+</ng-template>

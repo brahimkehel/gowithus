@@ -19,14 +19,18 @@ import { UsersComponent } from './admin-view/users/users.component';
 import {MatPaginatorModule} from "@angular/material/paginator";
 import {MatTableModule} from "@angular/material/table";
 import {MatProgressBarModule} from "@angular/material/progress-bar";
-
+import {MatTabsModule} from "@angular/material/tabs";
+import {UserDetailsDialogComponent} from "./admin-view/user-details-dialog/user-details-dialog.component";
+import { UsersTableComponent } from './admin-view/users/users-table/users-table.component';
 
 @NgModule({
   declarations: [
     AdminViewComponent,
     EditProfilComponent,
     SendMailComponent,
-    UsersComponent
+    UsersComponent,
+    UserDetailsDialogComponent,
+    UsersTableComponent,
   ],
     imports: [
         CommonModule,
@@ -46,6 +50,7 @@ import {MatProgressBarModule} from "@angular/material/progress-bar";
         MatPaginatorModule,
         MatTableModule,
         MatProgressBarModule,
+        MatTabsModule,
     ]
 })
 export class AdminModule { }

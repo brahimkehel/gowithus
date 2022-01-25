@@ -29,7 +29,7 @@ export class SendMailComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.utilisateurService.getAllApprouved().subscribe(
+    this.utilisateurService.getAllConducteursApprouved().subscribe(
       {
         next: (res: any) => {
           console.log(res)

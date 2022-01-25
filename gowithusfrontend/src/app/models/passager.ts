@@ -1,74 +1,75 @@
 export class Passager {
-  private id?: number;
-  private cin?: string;
-  private nom?: string;
-  private prenom?: string;
-  private username?: string;
-  private email?: string;
-  private tel?: number;
-  private password!: string;
+  private _id?: number;
+  private _cin?: string;
+  private _nom?: string;
+  private _prenom?: string;
+  private _username?: string;
+  private _email?: string;
+  private _tel?: number;
+  private _password!: string;
 
-  set _id(value: number) {
-    this.id = value;
+
+  get id(): number {
+    return this._id??0;
   }
 
-  set _cin(value: string) {
-    this.cin = value;
+  set id(value: number) {
+    this._id = value;
   }
 
-  set _nom(value: string) {
-    this.nom = value;
+  get cin(): string {
+    return this._cin??"";
   }
 
-  set _prenom(value: string) {
-    this.prenom = value;
+  set cin(value: string) {
+    this._cin = value;
   }
 
-  set _username(value: string) {
-    this.username = value;
+  get nom(): string {
+    return this._nom??"";
   }
 
-  set _email(value: string) {
-    this.email = value;
+  set nom(value: string) {
+    this._nom = value;
   }
 
-  set _tel(value: number) {
-    this.tel = value;
+  get prenom(): string {
+    return this._prenom??"";
   }
 
-  get _id(): number {
-    return this.id ?? 0;
+  set prenom(value: string) {
+    this._prenom = value;
   }
 
-  get _cin(): string {
-    return this.cin ?? "";
+  get username(): string {
+    return this._username??"";
   }
 
-  get _nom(): string {
-    return this.nom ?? "";
+  set username(value: string) {
+    this._username = value;
   }
 
-  get _prenom(): string {
-    return this.prenom ?? "";
+  get email(): string {
+    return this._email??"";
   }
 
-  get _username(): string {
-    return this.username ?? "";
+  set email(value: string) {
+    this._email = value;
   }
 
-  get _email(): string {
-    return this.email ?? "";
+  get tel(): number {
+    return this._tel??0;
   }
 
-  get _tel(): number {
-    return this.tel ?? 0;
+  set tel(value: number) {
+    this._tel = value;
   }
 
-  get _password(): string {
-    return this.password;
+  get password(): string {
+    return this._password;
   }
 
-  set _password(value: string) {
-    this.password = value;
+  set password(value: string) {
+    this._password = value;
   }
 }
