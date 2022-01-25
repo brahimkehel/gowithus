@@ -18,32 +18,37 @@ import {MatAutocompleteModule} from "@angular/material/autocomplete";
 import { UsersComponent } from './admin-view/users/users.component';
 import {MatPaginatorModule} from "@angular/material/paginator";
 import {MatTableModule} from "@angular/material/table";
-
+import {MatTabsModule} from "@angular/material/tabs";
+import {UserDetailsDialogComponent} from "./admin-view/user-details-dialog/user-details-dialog.component";
+import { UsersTableComponent } from './admin-view/users/users-table/users-table.component';
 
 @NgModule({
   declarations: [
     AdminViewComponent,
     EditProfilComponent,
     SendMailComponent,
-    UsersComponent
+    UsersComponent,
+    UserDetailsDialogComponent,
+    UsersTableComponent,
   ],
-  imports: [
-    CommonModule,
-    AppRoutingModule,
-    FormsModule,
-    ReactiveFormsModule,
-    SharedComponentsModule,
-    MatSidenavModule,
-    MatButtonModule,
-    MatIconModule,
-    MatDividerModule,
-    MatFormFieldModule,
-    MatSelectModule,
-    MatInputModule,
-    MatChipsModule,
-    MatAutocompleteModule,
-    MatPaginatorModule,
-    MatTableModule,
-  ]
+    imports: [
+        CommonModule,
+        AppRoutingModule,
+        FormsModule,
+        ReactiveFormsModule,
+        SharedComponentsModule,
+        MatSidenavModule,
+        MatButtonModule,
+        MatIconModule,
+        MatDividerModule,
+        MatFormFieldModule,
+        MatSelectModule,
+        MatInputModule,
+        MatChipsModule,
+        MatAutocompleteModule,
+        MatPaginatorModule,
+        MatTableModule,
+        MatTabsModule,
+    ]
 })
 export class AdminModule { }
