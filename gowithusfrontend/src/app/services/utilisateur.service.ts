@@ -55,6 +55,9 @@ export class UtilisateurService {
   getAllPassager(){
     return this.http.get<Passager[]>(this.url+"Passagers/");
   }
+  getAllApprouved(){
+    return this.http.get(this.url+"/Utilisateurs/approuved");
+  }
   sendMail(emails:string[],objet:string,content:string){
     console.log(emails)
     return this.http.post(this.url+"Utilisateurs/sendmail",{
