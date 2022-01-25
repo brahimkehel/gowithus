@@ -18,6 +18,7 @@ import {MatAutocompleteModule} from "@angular/material/autocomplete";
 import { UsersComponent } from './admin-view/users/users.component';
 import {MatPaginatorModule} from "@angular/material/paginator";
 import {MatTableModule} from "@angular/material/table";
+import {MatProgressBarModule} from "@angular/material/progress-bar";
 
 
 @NgModule({
@@ -27,23 +28,24 @@ import {MatTableModule} from "@angular/material/table";
     SendMailComponent,
     UsersComponent
   ],
-  imports: [
-    CommonModule,
-    AppRoutingModule,
-    FormsModule,
-    ReactiveFormsModule,
-    SharedComponentsModule,
-    MatSidenavModule,
-    MatButtonModule,
-    MatIconModule,
-    MatDividerModule,
-    MatFormFieldModule,
-    MatSelectModule,
-    MatInputModule,
-    MatChipsModule,
-    MatAutocompleteModule,
-    MatPaginatorModule,
-    MatTableModule,
-  ]
+    imports: [
+        CommonModule,
+        AppRoutingModule,
+        FormsModule,
+        ReactiveFormsModule,
+        SharedComponentsModule,
+        MatSidenavModule,
+        MatButtonModule,
+        MatIconModule,
+        MatDividerModule,
+        MatFormFieldModule,
+        MatSelectModule,
+        MatInputModule,
+        MatChipsModule,
+        MatAutocompleteModule,
+        MatPaginatorModule,
+        MatTableModule,
+        MatProgressBarModule,
+    ]
 })
 export class AdminModule { }

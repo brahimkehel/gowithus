@@ -1,9 +1,12 @@
+<div class="loader-container" *ngIf="isLoading">
+  <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+</div>
 <div class="container p-5 text-center">
   <span class="h1 ">Envoyer un mail</span>
-  <form #emailForm=ngForm (submit)="sendMail()">
+  <form #emailForm=ngForm (submit)="sendMail(objet.value,content.value)">
     <mat-form-field class="w-100" appearance="fill">
       <mat-label>Favorite Fruits</mat-label>
-      <mat-chip-list #chipList aria-label="Fruit selection">
+      <mat-chip-list #chipList>
         <mat-chip
           *ngFor="let user of users"
           (removed)="remove(user)">
@@ -28,10 +31,14 @@
         </mat-option>
       </mat-autocomplete>
     </mat-form-field>
+    <mat-form-field class="w-100" appearance="fill">
+      <mat-label>Objet</mat-label>
+      <input required matInput placeholder="Objet..." #objet>
+    </mat-form-field>
     <p>
       <mat-form-field class="w-100 h-50" appearance="fill" color="'#275F8E'">
         <mat-label>Contenu</mat-label>
-        <textarea required [minLength]="10" [maxLength]="800" [rows]="15" matInput
+        <textarea #content required [minLength]="10" [maxLength]="800" [rows]="15" matInput
                   placeholder="Ecrivez votre contenu ici...."></textarea>
       </mat-form-field>
     </p>

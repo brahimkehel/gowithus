@@ -4,6 +4,8 @@ import {FormControl} from "@angular/forms";
 import {map, Observable, startWith} from "rxjs";
 import {MatAutocompleteSelectedEvent} from "@angular/material/autocomplete";
 import {UtilisateurService} from "../../../services/utilisateur.service";
+import {Router} from "@angular/router";
+import {LoaderService} from "../../../services/loader.service";
 
 @Component({
   selector: 'app-send-mail',
@@ -17,12 +19,13 @@ export class SendMailComponent implements OnInit {
   users: any[] = [];
   allUsers: any[] = [];
   emails: string[] = [];
-
-  constructor(private utilisateurService: UtilisateurService) {
+  isLoading=false;
+  constructor(private utilisateurService: UtilisateurService,private router:Router,private loaderService:LoaderService) {
     this.filteredUsers = this.userCtrl.valueChanges.pipe(
       startWith(null),
       map((user: any) => (user ? this._filter(user) : this.allUsers.slice().filter(u => !this.users.includes(u)))),
     );
+    this.loaderService.isLoading.subscribe((data)=>this.isLoading=data);
   }
 
   ngOnInit(): void {
@@ -68,8 +71,12 @@ export class SendMailComponent implements OnInit {
     return this.allUsers.filter(user => user.nom.toLowerCase().includes(filterValue)
                                 || user.prenom.toLowerCase().includes(filterValue));
   }
-  sendMail(){
+  sendMail(objet:string,content:string){
     const usersEmail=new Set(this.emails);
-    console.log(usersEmail);
+    this.utilisateurService.sendMail(Array.from(usersEmail),objet,content).subscribe({
+      next:(res)=>this.router.navigateByUrl("/admin"),
+      error:(err)=>console.log(err),
+      complete:()=>{}
+    });
   }
 }

@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {Annonce} from "../../models/annonce";
 import {AnnonceService} from "../../services/annonce.service";
 import {HttpClient} from "@angular/common/http";
+import {Router} from "@angular/router";
+import {UtilisateurService} from "../../services/utilisateur.service";
 
 @Component({
   selector: 'app-conducteur-form',
@@ -11,13 +13,15 @@ import {HttpClient} from "@angular/common/http";
 export class ConducteurFormComponent implements OnInit {
   villes: string[] = [];
 
-  constructor(private annonceService: AnnonceService,private http:HttpClient) {
+  constructor(private annonceService: AnnonceService,
+              private http:HttpClient,
+              private router:Router,
+              private utilisateurService:UtilisateurService) {
   }
 
   ngOnInit(): void {
     this.http.get<any[]>("assets/villes.json").subscribe({
       next: (res:any[]) => {
-        // @ts-ignore
         res.forEach((v:any)=>this.villes.push(v.ville))
       },
       error: (err) => console.log(err)
@@ -40,6 +44,11 @@ export class ConducteurFormComponent implements OnInit {
       },
       error: (err) => {
         console.log(err)
+        if(err.error=="Conducteur not found"){
+          this.utilisateurService.username.next("Connectez-vous")
+          sessionStorage.clear()
+          this.router.navigateByUrl("/auth")
+        }
       },
       complete: () => {
         console.log("complete")

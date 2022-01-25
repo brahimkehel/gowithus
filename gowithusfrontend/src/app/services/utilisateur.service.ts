@@ -4,6 +4,7 @@ import {Annonce} from "../models/annonce";
 import {Observable, Subject,of, BehaviorSubject} from "rxjs";
 import {Conducteur} from "../models/conducteur";
 import {Passager} from "../models/passager";
+import {stringify} from "@angular/compiler/src/util";
 
 
 @Injectable()
@@ -44,5 +45,13 @@ export class UtilisateurService {
   }
   getAllApprouved(){
     return this.http.get(this.url+"Utilisateurs/approuved");
+  }
+  sendMail(emails:string[],objet:string,content:string){
+    console.log(emails)
+    return this.http.post(this.url+"Utilisateurs/sendmail",{
+      emails:emails,
+      objet:objet,
+      content:content
+    });
   }
 }

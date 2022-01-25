@@ -25,7 +25,7 @@ export class ConducteurAnnonesComponent implements OnInit {
           this.getAnnoncesByConducteur();
         }
       }
-    })
+    });
   }
 
   ngOnInit(): void {
