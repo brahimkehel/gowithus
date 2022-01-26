@@ -29,7 +29,7 @@ export class ConducteurFormComponent implements OnInit {
   }
 
   addConducteur(annonceForm: any) {
-    console.log(annonceForm.value.depart)
+    console.log(annonceForm)
     let a = new Annonce();
     a.depart = annonceForm.value.depart;
     a.arrive = annonceForm.value.arrive;
@@ -52,6 +52,7 @@ export class ConducteurFormComponent implements OnInit {
       },
       complete: () => {
         console.log("complete")
+        annonceForm.resetForm();
       }
     })
   }

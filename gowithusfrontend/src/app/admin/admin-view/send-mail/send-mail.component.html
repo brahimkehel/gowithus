@@ -5,7 +5,7 @@
   <span class="h1 ">Envoyer un mail</span>
   <form #emailForm=ngForm (submit)="sendMail(objet.value,content.value)">
     <mat-form-field class="w-100" appearance="fill">
-      <mat-label>Favorite Fruits</mat-label>
+      <mat-label>Utilisateurs</mat-label>
       <mat-chip-list #chipList>
         <mat-chip
           *ngFor="let user of users"

@@ -22,6 +22,7 @@ export class UsersTableComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    console.log(this.data_type)
     if(this.data_type=="ca") this.getAllConducteursApprouved();
     else if(this.data_type=="cna") this.getAllConducteursNonApprouved();
     else if(this.data_type=="p") this.getAllPassagers();
@@ -85,6 +86,9 @@ export class UsersTableComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
+      if(this.data_type=="ca") this.getAllConducteursApprouved();
+      else if(this.data_type=="cna") this.getAllConducteursNonApprouved();
+      else if(this.data_type=="p") this.getAllPassagers();
     });
   }
 }

@@ -26,6 +26,7 @@ export class UtilisateurService {
       }
     );
   }
+
   registerConducteur(conducteur:Conducteur){
     return this.http.post(this.url+"Utilisateurs/saveConducteur",{
       id:conducteur.id,
@@ -40,6 +41,7 @@ export class UtilisateurService {
       password:conducteur.password
     },{responseType:"text"});
   }
+
   registerPassager(passager:Passager){
     return this.http.post(this.url+"Utilisateurs/savePassager",passager);
   }
@@ -55,9 +57,11 @@ export class UtilisateurService {
   getAllPassager(){
     return this.http.get<Passager[]>(this.url+"Passagers/");
   }
+
   getAllApprouved(){
-    return this.http.get(this.url+"/Utilisateurs/approuved");
+    return this.http.get(this.url+"Utilisateurs/approuved");
   }
+
   sendMail(emails:string[],objet:string,content:string){
     console.log(emails)
     return this.http.post(this.url+"Utilisateurs/sendmail",{
@@ -65,5 +69,13 @@ export class UtilisateurService {
       objet:objet,
       content:content
     });
+  }
+
+  setApprouvedConducteur(id:number){
+    return this.http.post(this.url+"Conducteurs/"+id,{});
+  }
+
+  deleteUser(id:number){
+    return this.http.delete(this.url+"Utilisateurs/"+id);
   }
 }
