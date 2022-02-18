@@ -42,7 +42,7 @@ export class UtilisateurService {
     },{responseType:"text"});
   }
 
-  registerPassager(passager:Passager){
+  registerPassager(passager:any){
     return this.http.post(this.url+"Utilisateurs/savePassager",passager);
   }
 
