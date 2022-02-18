@@ -16,11 +16,17 @@ export class RegisterComponent implements OnInit {
   }
 
   selectedRadio: string = "passager";
+  files:any[]=[];
 
   ngOnInit(): void {
   }
+  onSelectFile(event:any){
+    this.files.push(event.target.files);
+    console.log(this.files)
+  }
 
   onRegisterHandler(formregister: any) {
+    console.log(formregister)
     if (this.selectedRadio === "passager") {
       let passager: Passager = new Passager();
       passager.id = 0;
@@ -54,7 +60,7 @@ export class RegisterComponent implements OnInit {
       conducteur.nb_places = formregister.form.controls.nb.value;
       conducteur.tel = formregister.form.controls.tel.value;
       conducteur.password = formregister.form.controls.password.value;
-      this.conducteurService.registerConducteur(conducteur).subscribe({
+      this.conducteurService.registerConducteur(conducteur,this.files).subscribe({
         next: (res) => {
           this.router.navigateByUrl('/auth');
         },

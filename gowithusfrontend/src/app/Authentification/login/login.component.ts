@@ -26,7 +26,6 @@ export class LoginComponent implements OnInit {
       loginForm.form.controls.password.value
     ).subscribe({
         next: (res: any) => {
-          //console.log(this.helper.decodeToken(res["access_token"]));
           let decodedToken = this.helper.decodeToken(res["access_token"]);
           sessionStorage.setItem("token", res["access_token"]);
           sessionStorage.setItem("refresh-token", res["refresh_token"]);
