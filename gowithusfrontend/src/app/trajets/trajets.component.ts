@@ -12,6 +12,8 @@ import {FormControl} from "@angular/forms";
 export class TrajetsComponent implements OnInit {
   argsObj: any;
   annonces: Annonce[] = [];
+  type:string="search";
+
   filtredAnnonces: Annonce[] = [];
   filterArgs = new FormControl();
 

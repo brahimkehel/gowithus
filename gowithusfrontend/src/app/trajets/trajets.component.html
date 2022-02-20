@@ -34,7 +34,7 @@
 </div>
 <div class="row justify-content-start m-0" *ngIf="annonces.length!=0">
   <div class="col-lg-4 col-md-6" *ngFor="let a of this.filtredAnnonces">
-    <app-trajet [annonce]="a"></app-trajet>
+    <app-trajet [annonce]="a" [type]="type"></app-trajet>
   </div>
 </div>
 <br>

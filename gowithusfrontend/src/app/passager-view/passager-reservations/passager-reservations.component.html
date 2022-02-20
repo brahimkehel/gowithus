@@ -1,0 +1,8 @@
+<div class="container text-center" style="text-align: center" *ngIf="this.annonces.length==0">
+  <img src="assets/no-content.svg" class="img-fluid" style="height: 80vh"/>
+</div>
+<div class="row justify-content-start m-0" *ngIf="this.annonces.length!=0">
+  <div class="col-lg-4 col-md-6" *ngFor="let a of this.annonces">
+    <app-trajet [annonce]="a" [type]="type"></app-trajet>
+  </div>
+</div>

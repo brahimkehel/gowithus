@@ -42,6 +42,7 @@ import {TokenInterceptor} from "./services/token.interceptor";
 import {ValidateEqualModule} from "ng-validate-equal";
 import {MatProgressBarModule} from "@angular/material/progress-bar";
 import {AdminModule} from "./admin/admin.module";
+import { PassagerReservationsComponent } from './passager-view/passager-reservations/passager-reservations.component';
 
 @NgModule({
   declarations: [
@@ -56,6 +57,7 @@ import {AdminModule} from "./admin/admin.module";
     ConducteurAnnonesComponent,
     ReservationDialogComponent,
     AuthenticationComponent,
+    PassagerReservationsComponent,
   ],
   imports: [
     BrowserModule,
