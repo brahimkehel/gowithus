@@ -10,6 +10,7 @@ import {ReservationDialogComponent} from "../reservation-dialog/reservation-dial
 })
 export class TrajetComponent implements OnInit {
   @Input() annonce: Annonce = new Annonce();
+  @Input() type:string="";
 
   constructor(public dialog: MatDialog) {
   }

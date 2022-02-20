@@ -16,6 +16,7 @@ import {SendMailComponent} from "./admin/admin-view/send-mail/send-mail.componen
 import {UsersComponent} from "./admin/admin-view/users/users.component";
 import {AdminGuard} from "./services/admin.guard";
 import {ConducteurGuard} from "./services/conducteur.guard";
+import {PassagerReservationsComponent} from "./passager-view/passager-reservations/passager-reservations.component";
 
 
 const routes: Routes = [
@@ -27,10 +28,11 @@ const routes: Routes = [
         path: 'acceuil',
         component: AcceuilComponent
       },
+      {path: 'reservations',component:PassagerReservationsComponent ,canActivate:[IsLoggedGuard]},
       {path: 'conducteurview', component: ConducteurViewComponent, canActivate:[ConducteurGuard]},
       {path: 'trajets', component: TrajetsComponent },
       {
-        path: 'auth', component: AuthenticationComponent, canActivate: [IsLoggedGuard], children: [
+        path: 'auth', component: AuthenticationComponent, children: [
           {path: '', component: LoginComponent},
           {path: 'register', component: RegisterComponent}
         ]

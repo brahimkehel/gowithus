@@ -16,7 +16,7 @@ export class IsLoggedGuard implements CanActivate {
   constructor(private router: Router) {
   }
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    if (sessionStorage.getItem("token") !== null) {
+    if (sessionStorage.getItem("token") == null) {
       this.router.navigateByUrl("/");
       return false;
     } else {
