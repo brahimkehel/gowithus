@@ -49,7 +49,7 @@
       <h3><mat-icon>schedule</mat-icon>{{this.annonce.heureDepart}}</h3>
     </div>
   </div>
-  <button *ngIf="checkTimeAviablility(this.annonce.heureDepart,this.annonce.date)" (click)="openDialog(this.annonce)">
+  <button *ngIf="checkTimeAviablility(this.annonce.heureDepart,this.annonce.date) && this.type=='search'" (click)="openDialog(this.annonce)">
     <mat-icon>confirmation_number</mat-icon>
     ({{this.annonce.prix}}DH) Reserver
   </button>

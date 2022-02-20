@@ -17,19 +17,23 @@
       <mat-icon style="vertical-align: middle">more_horiz</mat-icon>
     </button>
     <mat-menu #menu="matMenu">
+      <a mat-menu-item routerLink="/admin" *ngIf="username!=='Connectez-vous' && this.role=='ROLE_Admin'">
+        <mat-icon>admin_panel_settings</mat-icon>
+        <span>Administration</span>
+      </a>
+      <a mat-menu-item routerLink="/conducteurview" *ngIf="username!=='Connectez-vous' && this.role=='ROLE_Conducteur'">
+        <mat-icon>post_add</mat-icon>
+        <span>Gestion annonces</span>
+      </a>
+      <a mat-menu-item routerLink="/reservations" *ngIf="username!=='Connectez-vous' && this.role=='ROLE_Passager'">
+        <mat-icon>book_online</mat-icon>
+        <span>Mes Reservations</span>
+      </a>
       <a  (click)="onAuth()">
         <button mat-menu-item>
           <mat-icon>{{ username!=="Connectez-vous" ? "logout" : "login"}}</mat-icon>
           <span>{{ username!=="Connectez-vous" ? "Logout" : "Login"}}</span>
         </button>
-      </a>
-      <!--<a mat-menu-item routerLink="/trajets">
-        <mat-icon>card_travel</mat-icon>
-        <span>Mes trajets</span>
-      </a>-->
-      <a mat-menu-item routerLink="/conducteurview" *ngIf="username!=='Connectez-vous' && this.role=='ROLE_Conducteur'">
-        <mat-icon>post_add</mat-icon>
-        <span>Gestion annonces</span>
       </a>
     </mat-menu>
   </mat-toolbar>
