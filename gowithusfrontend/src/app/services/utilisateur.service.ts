@@ -47,9 +47,12 @@ export class UtilisateurService {
     return this.http.post(this.url + "Utilisateurs/saveConducteur", form);
   }
 
-
-  registerPassager(passager: Passager) {
-    return this.http.post(this.url + "Utilisateurs/savePassager", passager);
+  registerPassager(passager:any,files:any){
+    let form=new FormData();
+    form.append("passager",JSON.stringify(passager));
+    form.append("photoProfil",files[0][0]);
+    form.append("photoCin",files[1][0]);
+    return this.http.post(this.url+"Utilisateurs/savePassager",form);
   }
 
   getAllConducteursApprouved() {

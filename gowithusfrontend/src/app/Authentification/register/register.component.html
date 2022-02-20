@@ -50,9 +50,9 @@
       <input type="file" class="form-control" (change)="onSelectFile($event)" #cin="ngModel" required minlength="5" value="" id="cin" ngModel name="cin" >
       <!--<small class="alert-danger" *ngIf="confirmPass.touched && confirmPass.invalid && confirmPass.hasError('notEqual')&&  mdp.valid">le mot de passe doit être identique</small>-->
     </div>
-    <div class="form-group col-sm-4">
+    <div class="form-group col-sm-4" *ngIf="selectedRadio==='conducteur'">
       <label for="cartegrise">carte grise</label>
-      <input type="file" class="form-control" (change)="onSelectFile($event)"  #cartegrise="ngModel" [required]="selectedRadio==='conducteur'" id="cartegrise" ngModel name="cartegrise" >
+      <input type="file" class="form-control" (change)="onSelectFile($event)"  #cartegrise="ngModel"  [required]="selectedRadio==='conducteur'" id="cartegrise" ngModel name="cartegrise" >
       <!--<small class="alert-danger" *ngIf="confirmPass.touched && confirmPass.invalid && confirmPass.hasError('notEqual')&&  mdp.valid">le mot de passe doit être identique</small>-->
     </div>
   </div>

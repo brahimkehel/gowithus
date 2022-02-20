@@ -30,15 +30,18 @@ export class LoginComponent implements OnInit {
           sessionStorage.setItem("token", res["access_token"]);
           sessionStorage.setItem("refresh-token", res["refresh_token"]);
           sessionStorage.setItem("user", decodedToken.sub)
-          sessionStorage.setItem("exp",decodedToken.exp)
+          sessionStorage.setItem("exp", decodedToken.exp)
           this.conducteurService.username.next(decodedToken.sub);
           sessionStorage.setItem("role", decodedToken.roles[0])
           this.conducteurService.role.next(decodedToken.roles[0]);
           this.router.navigateByUrl("/");
         },
         error: (err) => {
-          console.log(err)
-          this._snackBar.open("login ou password incorrect", "Retry");
+          console.log(err.error.status)
+          if (err.error.status == 401)
+            this._snackBar.open("Vous n'etes approuvés 😡", "Ok");
+          else
+            this._snackBar.open("login ou password incorrect 😡", "Retry");
         },
         complete: () => {
           console.log("completed")
